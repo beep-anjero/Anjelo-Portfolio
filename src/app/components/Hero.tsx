@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Mail, MapPin, Moon, Sparkles, Sun } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Github, Mail, MapPin, Moon, Sparkles, Sun } from 'lucide-react';
 
 type HeroProps = {
   isDark: boolean;
@@ -11,25 +11,26 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#f7f2ea] px-4 text-[#1d1b18] transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#11110f] dark:text-[#f7f2ea]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(217,95,53,0.11),transparent_30%),radial-gradient(circle_at_88%_18%,rgba(244,197,66,0.12),transparent_26%)] dark:bg-[radial-gradient(circle_at_18%_12%,rgba(217,95,53,0.18),transparent_30%),radial-gradient(circle_at_88%_18%,rgba(244,197,66,0.1),transparent_26%)]" />
+    <section className="relative overflow-hidden border-b border-[#071014]/15 bg-[#eaf5f3] px-4 text-[#071014] transition-colors duration-500 sm:px-6 lg:px-8 dark:border-[#eef8f6]/15 dark:bg-[#071014] dark:text-[#eef8f6]">
+      <div className="absolute inset-0 portfolio-grid opacity-45" />
+      <div className="absolute inset-x-0 top-0 h-24 border-b border-[#071014]/10 bg-[#eaf5f3]/80 backdrop-blur dark:border-[#eef8f6]/10 dark:bg-[#071014]/80" />
 
-      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between py-6">
-        <a href="#" className="font-mono text-sm font-semibold tracking-[0.24em] text-[#1d1b18] dark:text-[#f7f2ea]">
-          JACV
+      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between py-5">
+        <a href="#" className="font-mono text-sm font-semibold uppercase tracking-[0.24em] text-[#071014] dark:text-[#eef8f6]">
+          JACV / 26
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-[#726a60] dark:text-[#bfb4a5] md:flex">
-          <a className="transition hover:text-[#1d1b18] dark:hover:text-white" href="#projects">Projects</a>
-          <a className="transition hover:text-[#1d1b18] dark:hover:text-white" href="#services">Services</a>
-          <a className="transition hover:text-[#1d1b18] dark:hover:text-white" href="#about">About</a>
-          <a className="transition hover:text-[#1d1b18] dark:hover:text-white" href="#contact">Contact</a>
+        <nav className="hidden items-center gap-7 text-sm font-semibold text-[#51635f] dark:text-[#a7bbb6] md:flex">
+          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#projects">/Work</a>
+          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#services">/Services</a>
+          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#about">/About</a>
+          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#contact">/Contact</a>
         </nav>
 
         <div className="flex items-center gap-2">
           <button
             onClick={onToggleTheme}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#1d1b18]/10 bg-white/65 text-[#1d1b18] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/10 dark:text-[#f7f2ea] dark:hover:bg-white/15"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] border border-[#071014]/15 bg-[#f7fbf8]/80 text-[#071014] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-[#18d6c4] dark:border-[#eef8f6]/15 dark:bg-[#0d1b20]/80 dark:text-[#eef8f6] dark:hover:border-[#18d6c4]"
             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
@@ -37,7 +38,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
           </button>
           <a
             href="mailto:anjelovidal28@gmail.com"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#1d1b18]/10 bg-white/65 text-[#1d1b18] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:bg-white sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2 dark:border-white/10 dark:bg-white/10 dark:text-[#f7f2ea] dark:hover:bg-white/15"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] border border-[#071014]/15 bg-[#071014] text-[#eef8f6] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:bg-[#18d6c4] hover:text-[#071014] sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2 dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014] dark:hover:bg-[#18d6c4]"
             aria-label="Email Anjelo"
           >
             <Mail className="h-4 w-4" />
@@ -46,36 +47,75 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
         </div>
       </header>
 
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 pb-20 pt-12 lg:min-h-[78vh] lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:pt-4">
-        <div>
-          <div className="mb-8 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#1d1b18]/10 bg-white/70 px-4 py-2 text-sm font-semibold text-[#1d1b18] shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-[#f7f2ea]">
-              <Sparkles className="h-4 w-4 text-[#d95f35]" />
-              Junior Software Engineer
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 pb-16 pt-12 lg:grid-cols-[0.76fr_1.24fr] lg:items-end lg:pb-20 lg:pt-16">
+        <aside className="order-2 grid gap-4 lg:order-1">
+          <div className="overflow-hidden rounded-[8px] border border-[#071014]/15 bg-[#f7fbf8] p-3 shadow-[0_24px_60px_rgba(7,16,20,0.12)] dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:shadow-black/35">
+            <img
+              src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
+              alt="Developer workspace with code on screen"
+              className="h-72 w-full rounded-[6px] object-cover grayscale-[18%] sm:h-96 lg:h-[30rem]"
+            />
+            <div className="mt-3 grid gap-2 sm:grid-cols-3">
+              {['Flutter apps', 'ML tools', 'Database design'].map((item) => (
+                <span key={item} className="border border-[#071014]/15 bg-[#eaf5f3] px-3 py-2 text-center font-mono text-xs font-semibold text-[#51635f] dark:border-[#eef8f6]/15 dark:bg-[#071014] dark:text-[#a7bbb6]">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-[8px] border border-[#071014]/15 bg-[#071014] p-5 text-[#eef8f6] dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014]">
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#0b776e]">/Status</p>
+              <p className="mt-4 text-2xl font-black uppercase leading-none">Computer Science Intern</p>
+            </div>
+            <div className="rounded-[8px] border border-[#071014]/15 bg-[#d9ff5d] p-5 text-[#071014] dark:border-[#eef8f6]/15">
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#38530f]">/Location</p>
+              <p className="mt-4 flex items-center gap-2 text-2xl font-black uppercase leading-none">
+                <MapPin className="h-5 w-5" />
+                Philippines
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        <div className="order-1 lg:order-2">
+          <div className="mb-6 flex flex-wrap items-center gap-3">
+            <span className="inline-flex items-center gap-2 border border-[#071014]/15 bg-[#f7fbf8] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#071014] shadow-sm dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:text-[#eef8f6]">
+              <Sparkles className="h-4 w-4 text-[#18d6c4]" />
+              Full-stack development
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#1d1b18]/10 bg-[#1d1b18] px-4 py-2 text-sm font-semibold text-[#f7f2ea] dark:bg-[#f7f2ea] dark:text-[#1d1b18]">
-              <MapPin className="h-4 w-4 text-[#f4c542]" />
-              Philippines
+            <span className="inline-flex items-center gap-2 border border-[#071014]/15 bg-[#f7fbf8] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#071014] shadow-sm dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:text-[#eef8f6]">
+              Backend systems / Machine learning tools
             </span>
           </div>
 
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.24em] text-[#d95f35] sm:text-sm">
-            Full-stack development / Backend systems / Machine learning tools
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4] sm:text-sm">
+            Jullian Anjelo C. Vidal
           </p>
 
-          <h1 className="mt-5 max-w-5xl text-[clamp(4rem,11vw,10rem)] font-black uppercase leading-[0.82] tracking-normal text-[#1d1b18] dark:text-[#f7f2ea]">
+          <h1 className="mt-4 max-w-5xl text-6xl font-black uppercase leading-[0.78] text-[#071014] sm:text-8xl md:text-9xl lg:text-[9.25rem] xl:text-[10.5rem] dark:text-[#eef8f6]">
             Anjelo
-            <span className="block text-[#d95f35]">Vidal</span>
+            <span className="block text-[#0b8e83] dark:text-[#18d6c4]">Vidal</span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5d564e] dark:text-[#d8cfc2] sm:text-xl">
-            I design and build practical software for student, business, and data workflows: clear interfaces, sturdy backend logic, and products that make sense from the first click.
-          </p>
+          <div className="mt-7 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+            <p className="max-w-2xl text-lg leading-8 text-[#435550] dark:text-[#b7cac5] sm:text-xl">
+              I design and build practical software for student, business, and data workflows: clear interfaces, sturdy backend logic, and products that make sense from the first click.
+            </p>
+            <a
+              href="#contact"
+              className="hidden h-20 w-20 items-center justify-center rounded-[8px] border border-[#071014]/15 bg-[#ff6b6b] text-[#071014] transition hover:-translate-y-1 hover:bg-[#d9ff5d] lg:inline-flex dark:border-[#eef8f6]/15"
+              aria-label="Go to contact"
+            >
+              <ArrowUpRight className="h-8 w-8" />
+            </a>
+          </div>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <button
               onClick={scrollToProjects}
-              className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#1d1b18] px-6 py-4 text-base font-semibold text-[#f7f2ea] shadow-[0_18px_45px_rgba(29,27,24,0.16)] transition hover:-translate-y-1 hover:bg-[#2e2a25] dark:bg-[#f4c542] dark:text-[#1d1b18] dark:hover:bg-[#ffd95e]"
+              className="group inline-flex items-center justify-center gap-3 rounded-[8px] bg-[#071014] px-6 py-4 text-base font-semibold text-[#eef8f6] shadow-[0_18px_45px_rgba(7,16,20,0.18)] transition hover:-translate-y-1 hover:bg-[#0b8e83] dark:bg-[#d9ff5d] dark:text-[#071014] dark:hover:bg-[#18d6c4]"
             >
               View selected work
               <ArrowDown className="h-5 w-5 transition group-hover:translate-y-1" />
@@ -84,29 +124,28 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
               href="https://github.com/beep-anjero"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-[#1d1b18]/10 bg-white/65 px-6 py-4 text-base font-semibold text-[#1d1b18] shadow-sm transition hover:-translate-y-1 hover:bg-white dark:border-white/10 dark:bg-white/10 dark:text-[#f7f2ea] dark:hover:bg-white/15"
+              className="inline-flex items-center justify-center gap-3 rounded-[8px] border border-[#071014]/15 bg-[#f7fbf8]/80 px-6 py-4 text-base font-semibold text-[#071014] shadow-sm transition hover:-translate-y-1 hover:border-[#18d6c4] hover:bg-white dark:border-[#eef8f6]/15 dark:bg-[#0d1b20]/80 dark:text-[#eef8f6] dark:hover:border-[#18d6c4]"
             >
               <Github className="h-5 w-5" />
               GitHub
             </a>
           </div>
         </div>
+      </div>
 
-        <div className="relative">
-          <div className="overflow-hidden rounded-lg border border-[#1d1b18]/10 bg-white/55 p-3 shadow-[0_24px_70px_rgba(60,48,34,0.14)] backdrop-blur dark:border-white/10 dark:bg-white/10 dark:shadow-black/30">
-            <img
-              src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
-              alt="Developer workspace with code on screen"
-              className="h-[24rem] w-full rounded-md object-cover grayscale-[12%] sm:h-[30rem]"
-            />
-            <div className="mt-3 grid gap-3 sm:grid-cols-3">
-              {['Flutter apps', 'ML tools', 'Database design'].map((item) => (
-                <span key={item} className="rounded-full border border-[#1d1b18]/10 bg-[#f7f2ea]/85 px-3 py-2 text-center text-sm font-semibold text-[#5d564e] dark:border-white/10 dark:bg-[#11110f]/80 dark:text-[#d8cfc2]">
-                  {item}
-                </span>
-              ))}
+      <div className="relative z-10 border-t border-[#071014]/15 bg-[#071014] py-4 text-[#eef8f6] dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014]">
+        <div className="marquee-track flex w-[200%] gap-8 whitespace-nowrap font-mono text-sm font-semibold uppercase tracking-[0.18em]">
+          {[0, 1].map((group) => (
+            <div key={group} className="flex min-w-[50%] gap-8">
+              <span>Full-stack development</span>
+              <span className="text-[#18d6c4] dark:text-[#0b8e83]">/</span>
+              <span>Backend systems</span>
+              <span className="text-[#d9ff5d] dark:text-[#0b776e]">/</span>
+              <span>Machine learning tools</span>
+              <span className="text-[#ff6b6b]">/</span>
+              <span>Clear interfaces</span>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

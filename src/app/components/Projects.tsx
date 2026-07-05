@@ -36,74 +36,76 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="bg-[#fbf8f2] px-4 py-24 text-[#1d1b18] transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#151411] dark:text-[#f7f2ea]">
+    <section id="projects" className="border-b border-[#071014]/15 bg-[#dcebe8] px-4 py-20 text-[#071014] transition-colors duration-500 sm:px-6 lg:px-8 lg:py-24 dark:border-[#eef8f6]/15 dark:bg-[#071014] dark:text-[#eef8f6]">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 grid gap-8 border-b border-[#1d1b18]/10 pb-10 dark:border-white/10 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="mb-10 grid gap-8 border-b border-[#071014]/15 pb-10 dark:border-[#eef8f6]/15 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#d95f35]">Featured builds</p>
-            <h2 className="mt-4 max-w-4xl text-[clamp(3rem,8vw,7.5rem)] font-black uppercase leading-[0.86]">
+            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">/Featured builds</p>
+            <h2 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[0.84] sm:text-7xl lg:text-8xl">
               Work with a job to do.
             </h2>
           </div>
-          <p className="max-w-md text-lg leading-8 text-[#6b6258] dark:text-[#cfc4b6]">
+          <p className="max-w-md text-lg leading-8 text-[#435550] dark:text-[#b7cac5]">
             Each build solves a concrete problem: managing operations, predicting outcomes, or making database design easier to understand.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-12">
+        <div className="grid gap-5">
           {projects.map((project, index) => (
             <article
               key={project.title}
-              className={`group overflow-hidden rounded-lg border border-[#1d1b18]/10 bg-[#f7f2ea] shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(60,48,34,0.12)] dark:border-white/10 dark:bg-[#1e1c18] ${index === 0 ? 'lg:col-span-7' : 'lg:col-span-5'}`}
+              className="group grid overflow-hidden rounded-[8px] border border-[#071014]/15 bg-[#f7fbf8] shadow-sm transition duration-500 hover:-translate-y-1 hover:border-[#0b8e83] hover:shadow-[0_22px_60px_rgba(7,16,20,0.12)] dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:hover:border-[#18d6c4] lg:grid-cols-[0.86fr_1.14fr]"
             >
-              <div className={`relative overflow-hidden bg-[#ebe2d5] ${index === 0 ? 'h-80' : 'h-56'}`}>
+              <div className={`relative min-h-[18rem] overflow-hidden bg-[#c6d8d3] dark:bg-[#13282f] ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
-                  className="h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105"
                 />
-                <span className="absolute left-5 top-5 rounded-full bg-[#f7f2ea]/90 px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#1d1b18] dark:bg-[#11110f]/85 dark:text-[#f7f2ea]">
+                <div className="absolute inset-0 bg-[#071014]/10 mix-blend-multiply dark:bg-[#071014]/20" />
+                <span className="absolute left-5 top-5 border border-[#071014]/15 bg-[#eef8f6]/90 px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#071014] dark:border-[#eef8f6]/15 dark:bg-[#071014]/85 dark:text-[#eef8f6]">
                   {project.eyebrow}
                 </span>
-                <span className="absolute bottom-5 right-5 font-mono text-5xl font-black text-white/80">
-                  0{index + 1}
+                <span className="absolute bottom-5 right-5 font-mono text-6xl font-black text-white/85">
+                  /0{index + 1}
                 </span>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 sm:p-8">
                 <div className="flex items-start justify-between gap-5">
                   <div>
-                    <h3 className="text-3xl font-black text-[#1d1b18] dark:text-[#f7f2ea]">{project.title}</h3>
-                    <p className="mt-4 text-base leading-7 text-[#6b6258] dark:text-[#cfc4b6]">{project.problemSolved}</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">Selected work</p>
+                    <h3 className="mt-4 text-4xl font-black uppercase leading-none text-[#071014] sm:text-5xl dark:text-[#eef8f6]">{project.title}</h3>
+                    <p className="mt-5 text-base leading-7 text-[#435550] dark:text-[#b7cac5]">{project.problemSolved}</p>
                   </div>
-                  <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#d95f35] text-white sm:flex">
+                  <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-[8px] bg-[#18d6c4] text-[#071014] sm:flex">
                     <ArrowUpRight className="h-5 w-5" />
                   </span>
                 </div>
 
-                <div className="mt-7 grid gap-4 border-y border-[#1d1b18]/10 py-5 dark:border-white/10 sm:grid-cols-2">
+                <div className="mt-7 grid gap-4 border-y border-[#071014]/15 py-5 dark:border-[#eef8f6]/15 sm:grid-cols-2">
                   <div className="flex gap-3">
-                    <Target className="mt-1 h-5 w-5 shrink-0 text-[#d95f35]" />
+                    <Target className="mt-1 h-5 w-5 shrink-0 text-[#0b8e83] dark:text-[#18d6c4]" />
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#9b8f7f]">Outcome</p>
-                      <p className="mt-1 font-semibold text-[#1d1b18] dark:text-[#f7f2ea]">{project.result}</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#70847f] dark:text-[#91a5a0]">Outcome</p>
+                      <p className="mt-1 font-semibold text-[#071014] dark:text-[#eef8f6]">{project.result}</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <Layers className="mt-1 h-5 w-5 shrink-0 text-[#d95f35]" />
+                    <Layers className="mt-1 h-5 w-5 shrink-0 text-[#0b8e83] dark:text-[#18d6c4]" />
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#9b8f7f]">Stack</p>
-                      <p className="mt-1 font-semibold text-[#1d1b18] dark:text-[#f7f2ea]">{project.tools.join(', ')}</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#70847f] dark:text-[#91a5a0]">Stack</p>
+                      <p className="mt-1 font-semibold text-[#071014] dark:text-[#eef8f6]">{project.tools.join(', ')}</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#1d1b18]/10 px-4 py-2.5 font-semibold text-[#1d1b18] transition hover:bg-white dark:border-white/10 dark:text-[#f7f2ea] dark:hover:bg-white/10">
+                  <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-[8px] border border-[#071014]/15 px-4 py-2.5 font-semibold text-[#071014] transition hover:border-[#18d6c4] hover:bg-white dark:border-[#eef8f6]/15 dark:text-[#eef8f6] dark:hover:bg-[#13282f]">
                     <Github className="h-4 w-4" />
                     Source
                   </a>
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1d1b18] px-4 py-2.5 font-semibold text-[#f7f2ea] transition hover:-translate-y-0.5 hover:bg-[#2e2a25] dark:bg-[#f4c542] dark:text-[#1d1b18] dark:hover:bg-[#ffd95e]">
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-[8px] bg-[#071014] px-4 py-2.5 font-semibold text-[#eef8f6] transition hover:-translate-y-0.5 hover:bg-[#0b8e83] dark:bg-[#d9ff5d] dark:text-[#071014] dark:hover:bg-[#18d6c4]">
                     Live
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
