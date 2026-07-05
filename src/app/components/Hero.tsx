@@ -1,4 +1,4 @@
-import { ArrowDown, Code2 } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Github, Mail, MapPin, Sparkles } from 'lucide-react';
 
 export function Hero() {
   const scrollToProjects = () => {
@@ -7,53 +7,99 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-slate-950">
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98110_1px,transparent_1px),linear-gradient(to_bottom,#10b98110_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      
-      {/* Floating gradient orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-600/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      
-      <div className="relative max-w-5xl mx-auto text-center z-10">
-        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 rounded-lg">
-          <Code2 className="w-4 h-4 text-emerald-400" />
-          <span className="text-sm text-emerald-300 font-mono">Junior Software Engineer</span>
-        </div>
-        
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl mb-6 font-bold tracking-tight">
-          <span className="text-white">Jullian Anjelo C. </span>
-          <span className="text-emerald-400">Vidal</span>
-        </h1>
-        
-        <p className="text-xl sm:text-2xl lg:text-3xl mb-12 text-slate-300 max-w-4xl mx-auto leading-relaxed">
-          Bridging the gap between <span className="text-emerald-400 font-semibold">robust backends</span> and <span className="text-emerald-400 font-semibold">clean frontends</span>.
-        </p>
-        
-        <button
-          onClick={scrollToProjects}
-          className="group inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/50 hover:scale-105"
+    <section className="relative min-h-[92vh] overflow-hidden border-b border-[#191714]/10 bg-[#f5f0e8] px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 opacity-[0.32] [background-image:linear-gradient(#191714_1px,transparent_1px),linear-gradient(90deg,#191714_1px,transparent_1px)] [background-size:56px_56px]" />
+
+      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between py-6">
+        <a href="#" className="font-mono text-sm font-semibold tracking-[0.24em] text-[#191714]">
+          JACV
+        </a>
+        <nav className="hidden items-center gap-7 text-sm font-medium text-[#575047] sm:flex">
+          <a className="transition hover:text-[#191714]" href="#projects">Work</a>
+          <a className="transition hover:text-[#191714]" href="#about">About</a>
+          <a className="transition hover:text-[#191714]" href="#contact">Contact</a>
+        </nav>
+        <a
+          href="mailto:anjelovidal28@gmail.com"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#191714]/20 bg-white/50 text-[#191714] shadow-sm transition hover:-translate-y-0.5 hover:bg-white sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2"
+          aria-label="Email Anjelo"
         >
-          <span className="text-lg">View Projects</span>
-          <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
-        </button>
-      </div>
-      
-      {/* Terminal-style decoration */}
-      <div className="absolute bottom-8 left-8 right-8 max-w-2xl mx-auto">
-        <div className="bg-slate-900/80 backdrop-blur-sm border border-emerald-500/20 rounded-lg p-4 font-mono text-sm">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-emerald-500" />
-            </div>
-            <span className="text-slate-500">~/portfolio</span>
+          <Mail className="h-4 w-4" />
+          <span className="hidden text-sm font-semibold sm:inline">Email me</span>
+        </a>
+      </header>
+
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 pb-16 pt-10 lg:min-h-[78vh] lg:grid-cols-[1.05fr_0.95fr] lg:pb-20 lg:pt-6">
+        <div>
+          <div className="mb-8 flex flex-wrap items-center gap-3">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#191714]/15 bg-white/55 px-4 py-2 text-sm font-semibold text-[#191714] shadow-sm">
+              <Sparkles className="h-4 w-4 text-[#d95f35]" />
+              Junior Software Engineer
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#191714]/15 bg-[#191714] px-4 py-2 text-sm font-semibold text-[#f5f0e8]">
+              <MapPin className="h-4 w-4 text-[#f4c542]" />
+              Philippines
+            </span>
           </div>
-          <p className="text-emerald-400">
-            <span className="text-slate-500">$</span> cat about.txt
+
+          <h1 className="max-w-5xl text-5xl font-black leading-[0.95] tracking-normal text-[#191714] sm:text-7xl lg:text-8xl">
+            I build useful software with backend grit and frontend taste.
+          </h1>
+
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-[#575047] sm:text-xl">
+            I'm Jullian Anjelo Vidal, a developer turning student, business, and data problems into practical apps that feel clear from the first click.
           </p>
-          <p className="text-slate-400 mt-1">Building scalable solutions, one line at a time.</p>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <button
+              onClick={scrollToProjects}
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#191714] px-6 py-4 text-base font-bold text-[#f5f0e8] shadow-[0_18px_45px_rgba(25,23,20,0.22)] transition hover:-translate-y-1 hover:bg-[#2d2923]"
+            >
+              View selected work
+              <ArrowDown className="h-5 w-5 transition group-hover:translate-y-1" />
+            </button>
+            <a
+              href="https://github.com/beep-anjero"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-[#191714]/20 bg-white/60 px-6 py-4 text-base font-bold text-[#191714] shadow-sm transition hover:-translate-y-1 hover:bg-white"
+            >
+              <Github className="h-5 w-5" />
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="rounded-lg border border-[#191714]/15 bg-[#191714] p-3 shadow-[0_28px_80px_rgba(25,23,20,0.28)]">
+            <img
+              src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
+              alt="Developer workspace with code on screen"
+              className="h-[28rem] w-full rounded-md object-cover grayscale-[18%]"
+            />
+            <div className="absolute bottom-6 left-6 right-6 rounded-lg border border-white/15 bg-[#f5f0e8]/92 p-5 shadow-2xl backdrop-blur">
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#7a6b5b]">Current focus</p>
+                  <p className="mt-2 text-2xl font-black text-[#191714]">Build, measure, refine.</p>
+                </div>
+                <a
+                  href="#projects"
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#d95f35] text-white transition hover:-translate-y-0.5 hover:bg-[#c64f2a]"
+                  aria-label="Jump to projects"
+                >
+                  <ArrowUpRight className="h-5 w-5" />
+                </a>
+              </div>
+              <div className="mt-5 grid grid-cols-3 gap-3 text-sm">
+                {['Flutter apps', 'ML tools', 'Database design'].map((item) => (
+                  <span key={item} className="rounded-full border border-[#191714]/10 bg-white/65 px-3 py-2 text-center font-semibold text-[#575047]">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

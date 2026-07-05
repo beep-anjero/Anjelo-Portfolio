@@ -1,125 +1,123 @@
-import { FileText, Github } from 'lucide-react';
+import { ArrowUpRight, Github, Layers, Target } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const projects = [
   {
     title: 'MicroBiz',
+    eyebrow: 'Mobile business toolkit',
     image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    problemSolved: 'Built a mobile-first business management application using Flutter/Dart. Implemented local state management and data persistence for offline-first functionality, ensuring smooth UX even without network connectivity.',
+    problemSolved: 'Mobile-first business management with local state and offline data persistence, built for owners who need the app to keep working during spotty connectivity.',
+    result: 'Offline-ready workflows',
     tools: ['Dart', 'Flutter', 'SQLite', 'Provider'],
     codeUrl: 'https://github.com/beep-anjero/MicroBiz',
-    docsUrl: 'https://github.com/beep-anjero/MicroBiz#readme',
+    liveUrl: 'https://github.com/beep-anjero/MicroBiz#readme',
   },
   {
     title: 'Student Result Predictor',
+    eyebrow: 'ML web application',
     image: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    problemSolved: 'Developed a machine learning web application to predict student academic performance. Integrated data preprocessing, model training, and real-time predictions through a clean web interface deployed on Vercel.',
+    problemSolved: 'A prediction interface for academic outcomes, connecting preprocessing, model training, and real-time Flask predictions behind a simple web flow.',
+    result: 'Model to browser pipeline',
     tools: ['Python', 'Flask', 'Scikit-learn', 'HTML/CSS'],
     codeUrl: 'https://github.com/beep-anjero/Student_result_predictor',
-    docsUrl: 'https://student-result-predictor-theta.vercel.app/',
+    liveUrl: 'https://student-result-predictor-theta.vercel.app/',
   },
   {
     title: 'JejeNorm',
+    eyebrow: 'Database design helper',
     image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    problemSolved: 'Created a Python-based web application with database normalization tools. Implemented algorithms to analyze database schemas and recommend optimal normal forms, helping developers design efficient relational databases.',
+    problemSolved: 'A database normalization tool that analyzes schemas and suggests cleaner normal forms for developers designing relational systems.',
+    result: 'Schema analysis guidance',
     tools: ['Python', 'Django', 'PostgreSQL', 'Vercel'],
     codeUrl: 'https://github.com/beep-anjero/JejeNorm',
-    docsUrl: 'https://jeje-norm.vercel.app',
+    liveUrl: 'https://jeje-norm.vercel.app',
   },
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-slate-900">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98108_1px,transparent_1px),linear-gradient(to_bottom,#10b98108_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      
-      <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-2 bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 rounded-lg">
-            <span className="text-sm text-emerald-300 font-mono">💼 Selected Work</span>
+    <section id="projects" className="bg-[#191714] px-4 py-24 text-[#f5f0e8] sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div>
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#f4c542]">Selected Work</p>
+            <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight sm:text-6xl">
+              Projects with a job to do.
+            </h2>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-            Featured <span className="text-emerald-400">Projects</span>
-          </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Production-ready solutions showcasing backend engineering excellence
+          <p className="max-w-xl text-lg leading-8 text-[#c9bca9]">
+            Each build solves a concrete problem: managing operations, predicting outcomes, or making database design easier to understand.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="grid gap-5 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative bg-slate-950/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/10"
+            <article
+              key={project.title}
+              className={`group overflow-hidden border border-white/10 bg-[#25211c] transition duration-500 hover:-translate-y-1 hover:border-[#f4c542]/45 ${index === 0 ? 'lg:col-span-2' : ''}`}
             >
-              {/* Image */}
-              <div className="relative overflow-hidden h-48 bg-slate-800">
+              <div className={`relative overflow-hidden bg-[#332d25] ${index === 0 ? 'h-80' : 'h-56'}`}>
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="h-full w-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#191714] via-transparent to-transparent" />
+                <span className="absolute left-5 top-5 rounded-full bg-[#f5f0e8] px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#191714]">
+                  {project.eyebrow}
+                </span>
               </div>
-              
+
               <div className="p-6">
-                {/* Title */}
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-emerald-400 transition-colors">
-                  {project.title}
-                </h3>
-                
-                {/* Problem Solved */}
-                <div className="mb-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-1 h-4 bg-emerald-400 rounded-full" />
-                    <p className="text-xs uppercase tracking-wider text-emerald-400 font-mono font-semibold">
-                      Problem Solved
-                    </p>
+                <div className="flex items-start justify-between gap-5">
+                  <div>
+                    <h3 className="text-3xl font-black text-white">{project.title}</h3>
+                    <p className="mt-4 text-base leading-7 text-[#c9bca9]">{project.problemSolved}</p>
                   </div>
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    {project.problemSolved}
-                  </p>
+                  <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#d95f35] text-white sm:flex">
+                    <ArrowUpRight className="h-5 w-5" />
+                  </span>
                 </div>
-                
-                {/* Tools Used */}
-                <div className="mb-6">
-                  <p className="text-xs uppercase tracking-wider text-slate-500 font-mono mb-3">
-                    Tools Used
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tools.map((tool, toolIndex) => (
-                      <span
-                        key={toolIndex}
-                        className="text-xs bg-slate-800 text-emerald-300 px-3 py-1.5 rounded-md border border-slate-700 font-mono"
-                      >
-                        {tool}
-                      </span>
-                    ))}
+
+                <div className="mt-7 grid gap-4 border-y border-white/10 py-5 sm:grid-cols-2">
+                  <div className="flex gap-3">
+                    <Target className="mt-1 h-5 w-5 shrink-0 text-[#f4c542]" />
+                    <div>
+                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#8f8170]">Outcome</p>
+                      <p className="mt-1 font-semibold text-[#f5f0e8]">{project.result}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <Layers className="mt-1 h-5 w-5 shrink-0 text-[#f4c542]" />
+                    <div>
+                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#8f8170]">Stack</p>
+                      <p className="mt-1 font-semibold text-[#f5f0e8]">{project.tools.join(', ')}</p>
+                    </div>
                   </div>
                 </div>
-                
-                {/* Buttons */}
-                <div className="grid grid-cols-2 gap-3">
+
+                <div className="mt-6 flex flex-wrap gap-3">
                   <a
                     href={project.codeUrl}
-                    className="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-3 rounded-lg border border-slate-700 hover:border-emerald-500/50 transition-all duration-300 group/btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2.5 font-semibold text-[#f5f0e8] transition hover:bg-white/10"
                   >
-                    <Github className="w-4 h-4" />
-                    <span className="text-sm font-mono">Source</span>
+                    <Github className="h-4 w-4" />
+                    Source
                   </a>
                   <a
-                    href={project.docsUrl}
-                    className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-slate-950 px-4 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/50 group/btn"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#f4c542] px-4 py-2.5 font-bold text-[#191714] transition hover:-translate-y-0.5 hover:bg-[#ffd95e]"
                   >
-                    <FileText className="w-4 h-4" />
-                    <span className="text-sm font-mono">Live Demo</span>
+                    Live
+                    <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
               </div>
-              
-              {/* Corner decoration */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-500/10 to-transparent" />
-            </div>
+            </article>
           ))}
         </div>
       </div>

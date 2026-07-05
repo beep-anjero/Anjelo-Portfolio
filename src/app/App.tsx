@@ -6,7 +6,7 @@ import { Contact } from "./components/Contact";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
+    <div className="min-h-screen bg-[#f5f0e8] text-[#191714]">
       <Hero />
       <PowerTrio />
       <Projects />

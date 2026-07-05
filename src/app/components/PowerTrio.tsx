@@ -1,111 +1,95 @@
-import { Code2, FileCode, Server } from 'lucide-react';
+import { Code2, Database, FileCode, Server } from 'lucide-react';
 
 const powerTrio = [
   {
     name: 'TypeScript',
     icon: Code2,
-    description: 'Type-safe development with modern frameworks & tooling',
-    gradient: 'from-blue-500 to-cyan-600',
-    frameworks: ['React', 'Next.js', 'Node.js'],
+    description: 'Interfaces, reusable components, API integration, and tooling that keeps the frontend predictable.',
+    accent: 'bg-[#2f6fed]',
+    frameworks: ['React', 'Node.js', 'Vite'],
   },
   {
     name: 'Python',
     icon: FileCode,
-    description: 'Data processing, automation & Django development',
-    gradient: 'from-yellow-500 to-orange-600',
+    description: 'Model experiments, Flask/Django applications, automation scripts, and practical data workflows.',
+    accent: 'bg-[#d95f35]',
     frameworks: ['Django', 'Flask', 'FastAPI'],
   },
   {
     name: 'Java',
     icon: Server,
-    description: 'Enterprise applications & Spring Boot microservices',
-    gradient: 'from-orange-500 to-red-600',
+    description: 'Object-oriented services, structured backend logic, and maintainable application layers.',
+    accent: 'bg-[#15806d]',
     frameworks: ['Spring Boot', 'Hibernate', 'Maven'],
   },
 ];
 
 export function PowerTrio() {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-slate-950">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98108_1px,transparent_1px),linear-gradient(to_bottom,#10b98108_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      
-      <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-2 bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 rounded-lg">
-            <span className="text-sm text-emerald-300 font-mono">⚡ Core Technologies</span>
+    <section className="bg-[#fdfaf4] px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+          <div>
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#d95f35]">Core Stack</p>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-[#191714] sm:text-5xl">
+              The tools I reach for when ideas need to become working products.
+            </h2>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-            Featured <span className="text-emerald-400">Languages</span>
-          </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            My go-to languages for building scalable, production-grade systems
+          <p className="max-w-2xl text-lg leading-8 text-[#575047] lg:justify-self-end">
+            I like stacks that are boring in production and expressive while building. These are the languages I use to move from backend logic to usable interfaces.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-6">
+
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
           {powerTrio.map((tech, index) => {
             const Icon = tech.icon;
+
             return (
-              <div
-                key={index}
-                className="group relative bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-8 hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2"
+              <article
+                key={tech.name}
+                className="group border border-[#191714]/10 bg-[#f5f0e8] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#191714]/25 hover:shadow-xl"
               >
-                {/* Gradient overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
-                
-                <div className="relative">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 mb-6 rounded-xl bg-gradient-to-br ${tech.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-8 h-8 text-white" />
+                <div className="flex items-center justify-between">
+                  <div className={`flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-lg ${tech.accent} text-white shadow-lg transition group-hover:rotate-3`}>
+                    <Icon className="h-6 w-6" />
                   </div>
-                  
-                  {/* Language name */}
-                  <h3 className="text-3xl font-bold text-white mb-3 font-mono">
-                    {tech.name}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-slate-400 mb-6 leading-relaxed">
-                    {tech.description}
-                  </p>
-                  
-                  {/* Frameworks */}
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-emerald-400 mb-3 font-mono">Frameworks</p>
-                    <div className="flex flex-wrap gap-2">
-                      {tech.frameworks.map((framework, fIndex) => (
-                        <span
-                          key={fIndex}
-                          className="text-sm bg-slate-800 text-slate-300 px-3 py-1.5 rounded-md border border-slate-700 font-mono hover:border-emerald-500/50 hover:text-emerald-300 transition-all duration-300"
-                        >
-                          {framework}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <span className="font-mono text-sm text-[#8a7b6a]">0{index + 1}</span>
                 </div>
-                
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-2xl" />
-              </div>
+
+                <h3 className="mt-7 text-3xl font-black text-[#191714]">{tech.name}</h3>
+                <p className="mt-3 min-h-24 text-base leading-7 text-[#575047]">{tech.description}</p>
+
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {tech.frameworks.map((framework) => (
+                    <span
+                      key={framework}
+                      className="rounded-full border border-[#191714]/10 bg-white/70 px-3 py-1.5 font-mono text-xs font-semibold text-[#575047]"
+                    >
+                      {framework}
+                    </span>
+                  ))}
+                </div>
+              </article>
             );
           })}
         </div>
-        
-        {/* Additional skills banner */}
-        <div className="mt-12 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-6">
-          <p className="text-center text-slate-400 mb-4">
-            <span className="text-emerald-400 font-semibold">Additional expertise:</span>
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {['PHP', 'Dart', 'JavaScript', 'C++', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Docker', 'Git', 'AWS'].map((skill, index) => (
-              <span
-                key={index}
-                className="text-sm bg-slate-800/50 text-slate-300 px-4 py-2 rounded-lg border border-slate-700/50 font-mono"
-              >
-                {skill}
-              </span>
-            ))}
+
+        <div className="mt-5 grid gap-4 border border-[#191714]/10 bg-[#191714] p-5 text-[#f5f0e8] md:grid-cols-[auto_1fr] md:items-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f4c542] text-[#191714]">
+            <Database className="h-6 w-6" />
+          </div>
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#f4c542]">Also comfortable with</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {['PHP', 'Dart', 'JavaScript', 'C++', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Docker', 'Git', 'AWS'].map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 font-mono text-xs text-[#f5f0e8]"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

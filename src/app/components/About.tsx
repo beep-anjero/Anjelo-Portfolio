@@ -1,95 +1,68 @@
 import { Blocks, Code2, Layers, Zap } from 'lucide-react';
 
+const principles = [
+  {
+    title: 'Start With The Workflow',
+    icon: Blocks,
+    copy: 'I map what the user needs to finish, then shape the data model and interface around that path.',
+  },
+  {
+    title: 'Make The Backend Honest',
+    icon: Code2,
+    copy: 'Clear schemas, predictable endpoints, and readable service logic matter more to me than clever code.',
+  },
+  {
+    title: 'Keep Feedback Fast',
+    icon: Zap,
+    copy: 'I care about responsive interactions, useful errors, and small details that make software feel trustworthy.',
+  },
+  {
+    title: 'Connect The Layers',
+    icon: Layers,
+    copy: 'Frontend, backend, and database choices should support each other instead of becoming separate islands.',
+  },
+];
+
 export function About() {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-slate-950">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98108_1px,transparent_1px),linear-gradient(to_bottom,#10b98108_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      
-      <div className="relative max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-2 bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 rounded-lg">
-            <span className="text-sm text-emerald-300 font-mono">👨‍💻 Engineering Philosophy</span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            About <span className="text-emerald-400">Me</span>
-          </h2>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Main about content */}
-          <div className="md:col-span-2 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-8 lg:p-10">
-            <p className="text-lg text-slate-300 leading-relaxed mb-6">
-              I'm <span className="text-emerald-400 font-semibold">Jullian Anjelo C. Vidal</span>, a Junior Software Engineer with a passion for building 
-              <span className="text-emerald-400 font-semibold"> scalable, maintainable architectures</span> that solve real-world problems.
+    <section id="about" className="bg-[#f5f0e8] px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="lg:sticky lg:top-10">
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#d95f35]">About</p>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-[#191714] sm:text-6xl">
+              Practical engineer, curious builder.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-[#575047]">
+              I am Jullian Anjelo C. Vidal, a Junior Software Engineer who enjoys building the quiet parts of software that make the visible parts work well.
             </p>
-            <p className="text-lg text-slate-300 leading-relaxed mb-6">
-              My journey in software engineering is driven by a deep fascination with <span className="text-emerald-400 font-semibold">backend systems</span> — 
-              the invisible engines that power modern applications. From designing efficient database schemas to implementing robust API endpoints, 
-              I thrive on creating solutions that are both elegant and performant.
-            </p>
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Whether it's optimizing database queries, implementing caching strategies, or architecting microservices, 
-              I approach every challenge with a commitment to <span className="text-emerald-400 font-semibold">clean code</span> and 
-              <span className="text-emerald-400 font-semibold"> best practices</span>.
+            <p className="mt-5 text-lg leading-8 text-[#575047]">
+              My projects sit across mobile apps, machine learning tools, and database systems. The common thread is simple: make complicated work easier for the person using the product.
             </p>
           </div>
-          
-          {/* Engineering principles */}
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-emerald-600/20 flex items-center justify-center">
-                <Blocks className="w-5 h-5 text-emerald-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Scalable Architecture</h3>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {principles.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article key={item.title} className="border border-[#191714]/10 bg-[#fdfaf4] p-6 shadow-sm">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#191714] text-[#f4c542]">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-black text-[#191714]">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-[#575047]">{item.copy}</p>
+                </article>
+              );
+            })}
+
+            <div className="border border-[#191714]/10 bg-[#d95f35] p-6 text-white sm:col-span-2">
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/75">Working style</p>
+              <p className="mt-4 text-2xl font-black leading-tight">
+                I like software that is direct, maintainable, and easy to explain to the next person who has to improve it.
+              </p>
             </div>
-            <p className="text-slate-400 leading-relaxed">
-              Building systems that grow with demand. I design with horizontal scaling, load balancing, and distributed systems in mind.
-            </p>
           </div>
-          
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-emerald-600/20 flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-emerald-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Clean Code</h3>
-            </div>
-            <p className="text-slate-400 leading-relaxed">
-              Writing readable, maintainable code following SOLID principles, design patterns, and industry standards.
-            </p>
-          </div>
-          
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-emerald-600/20 flex items-center justify-center">
-                <Zap className="w-5 h-5 text-emerald-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Performance First</h3>
-            </div>
-            <p className="text-slate-400 leading-relaxed">
-              Optimizing every layer — from database indexing to API response times. Performance isn't an afterthought.
-            </p>
-          </div>
-          
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-emerald-600/20 flex items-center justify-center">
-                <Layers className="w-5 h-5 text-emerald-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Full-Stack Mindset</h3>
-            </div>
-            <p className="text-slate-400 leading-relaxed">
-              Understanding both frontend and backend allows me to build cohesive, end-to-end solutions.
-            </p>
-          </div>
-        </div>
-        
-        {/* Quote section */}
-        <div className="bg-gradient-to-r from-slate-900/50 to-emerald-950/30 backdrop-blur-sm border border-emerald-800/30 rounded-2xl p-8 text-center">
-          <p className="text-2xl text-slate-200 italic mb-4">
-            "Great software is built on great architecture."
-          </p>
-          <p className="text-slate-500 font-mono">— My Engineering Mantra</p>
         </div>
       </div>
     </section>
