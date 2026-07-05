@@ -38,23 +38,23 @@ export function Projects() {
   return (
     <section id="projects" className="bg-[#191714] px-4 py-24 text-[#f5f0e8] transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#0d0c0a]">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <div className="mb-12 grid gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#f4c542]">Selected Work</p>
-            <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight sm:text-6xl">
-              Projects with a job to do.
+            <h2 className="mt-4 max-w-5xl text-[clamp(3.5rem,9vw,8.5rem)] font-black uppercase leading-[0.82] tracking-normal">
+              Work with a job to do.
             </h2>
           </div>
-          <p className="max-w-xl text-lg leading-8 text-[#c9bca9]">
+          <p className="max-w-md text-lg leading-8 text-[#c9bca9]">
             Each build solves a concrete problem: managing operations, predicting outcomes, or making database design easier to understand.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-5 lg:grid-cols-12">
           {projects.map((project, index) => (
             <article
               key={project.title}
-              className={`group overflow-hidden border border-white/10 bg-[#25211c] transition duration-500 hover:-translate-y-1 hover:border-[#f4c542]/45 dark:bg-[#171512] ${index === 0 ? 'lg:col-span-2' : ''}`}
+              className={`group overflow-hidden border border-white/10 bg-[#25211c] transition duration-500 hover:-translate-y-1 hover:border-[#f4c542]/45 dark:bg-[#171512] ${index === 0 ? 'lg:col-span-7' : 'lg:col-span-5'}`}
             >
               <div className={`relative overflow-hidden bg-[#332d25] ${index === 0 ? 'h-80' : 'h-56'}`}>
                 <ImageWithFallback
@@ -65,6 +65,9 @@ export function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#191714] via-transparent to-transparent dark:from-[#0d0c0a]" />
                 <span className="absolute left-5 top-5 rounded-full bg-[#f5f0e8] px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#191714] dark:bg-[#f4c542]">
                   {project.eyebrow}
+                </span>
+                <span className="absolute bottom-5 right-5 font-mono text-5xl font-black text-white/80">
+                  0{index + 1}
                 </span>
               </div>
 
@@ -110,7 +113,7 @@ export function Projects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#f4c542] px-4 py-2.5 font-bold text-[#191714] transition hover:-translate-y-0.5 hover:bg-[#ffd95e]"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d95f35] px-4 py-2.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#c64f2a]"
                   >
                     Live
                     <ArrowUpRight className="h-4 w-4" />

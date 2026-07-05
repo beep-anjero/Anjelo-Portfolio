@@ -66,7 +66,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
             <span className="block text-[#d95f35]">Vidal</span>
           </h1>
 
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-[#575047] transition-colors dark:text-[#c9bca9] sm:text-xl">
+          <p className="mt-7 max-w-3xl text-lg font-medium leading-8 text-[#3f3932] transition-colors dark:text-[#f5f0e8] sm:text-xl">
             I design and build practical software for student, business, and data workflows: clear interfaces, sturdy backend logic, and products that make sense from the first click.
           </p>
 

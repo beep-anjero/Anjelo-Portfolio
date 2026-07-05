@@ -16,8 +16,8 @@ export function Contact() {
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
           <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#d95f35]">Contact</p>
-          <h2 className="mt-4 max-w-4xl text-4xl font-black leading-tight text-[#191714] transition-colors dark:text-[#f5f0e8] sm:text-6xl">
-            Have a build, internship, or collaboration in mind?
+          <h2 className="mt-4 max-w-5xl text-[clamp(3.25rem,8vw,7rem)] font-black uppercase leading-[0.84] text-[#191714] transition-colors dark:text-[#f5f0e8]">
+            Start a build with me.
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-[#575047] transition-colors dark:text-[#c9bca9]">
             I am open to junior software engineering roles, project collaborations, and conversations about building useful apps.
@@ -70,6 +70,17 @@ export function Contact() {
         <p className="font-mono text-sm text-[#7a6b5b] dark:text-[#b9ad9e]">
           Copyright {new Date().getFullYear()} Jullian Anjelo C. Vidal. Built with React and Tailwind CSS.
         </p>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-7xl overflow-hidden border-y border-[#191714]/10 bg-[#191714] py-3 text-[#f5f0e8] dark:border-white/10">
+        <div className="animate-[marquee_22s_linear_infinite] whitespace-nowrap font-mono text-sm font-bold uppercase tracking-[0.22em]">
+          <span className="mx-6">Available for junior software roles</span>
+          <span className="mx-6">Open to project collaborations</span>
+          <span className="mx-6">Backend-first full-stack development</span>
+          <span className="mx-6">Available for junior software roles</span>
+          <span className="mx-6">Open to project collaborations</span>
+          <span className="mx-6">Backend-first full-stack development</span>
+        </div>
       </div>
     </footer>
   );

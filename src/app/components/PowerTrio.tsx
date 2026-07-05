@@ -28,11 +28,11 @@ export function PowerTrio() {
   return (
     <section className="bg-[#fdfaf4] px-4 py-24 transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#171512]">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
           <div>
             <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#d95f35]">Core Stack</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-[#191714] transition-colors dark:text-[#f5f0e8] sm:text-5xl">
-              The tools I reach for when ideas need to become working products.
+            <h2 className="mt-4 text-[clamp(3rem,7vw,6.5rem)] font-black uppercase leading-[0.86] text-[#191714] transition-colors dark:text-[#f5f0e8]">
+              Tools for practical products.
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-[#575047] transition-colors dark:text-[#c9bca9] lg:justify-self-end">
