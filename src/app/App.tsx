@@ -26,7 +26,7 @@ export default function App() {
   }, [isDark]);
 
   return (
-    <div className="min-h-screen bg-[#f5f0e8] text-[#191714] transition-colors duration-500 dark:bg-[#11100e] dark:text-[#f5f0e8]">
+    <div className="min-h-screen bg-[#f7f2ea] text-[#1d1b18] transition-colors duration-500 dark:bg-[#11110f] dark:text-[#f7f2ea]">
       <Hero isDark={isDark} onToggleTheme={() => setIsDark((value) => !value)} />
       <PowerTrio />
       <Projects />

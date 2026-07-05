@@ -36,45 +36,33 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="bg-[#191714] px-4 py-24 text-[#f5f0e8] transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#0d0c0a]">
+    <section id="projects" className="bg-[#fbf8f2] px-4 py-24 text-[#1d1b18] transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#151411] dark:text-[#f7f2ea]">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 grid gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="mb-12 grid gap-8 border-b border-[#1d1b18]/10 pb-10 dark:border-white/10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#f4c542]">Featured builds</p>
-            <h2 className="mt-4 max-w-5xl text-[clamp(3.5rem,9vw,8.5rem)] font-black uppercase leading-[0.82] tracking-normal">
+            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#d95f35]">Featured builds</p>
+            <h2 className="mt-4 max-w-4xl text-[clamp(3rem,8vw,7.5rem)] font-black uppercase leading-[0.86]">
               Work with a job to do.
             </h2>
           </div>
-          <div className="max-w-md">
-            <p className="text-lg leading-8 text-[#c9bca9]">
-              Each build solves a concrete problem: managing operations, predicting outcomes, or making database design easier to understand.
-            </p>
-            <a
-              href="https://github.com/beep-anjero"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 font-bold uppercase tracking-[0.04em] text-[#f5f0e8] transition hover:bg-white/10"
-            >
-              All builds
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </div>
+          <p className="max-w-md text-lg leading-8 text-[#6b6258] dark:text-[#cfc4b6]">
+            Each build solves a concrete problem: managing operations, predicting outcomes, or making database design easier to understand.
+          </p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-12">
           {projects.map((project, index) => (
             <article
               key={project.title}
-              className={`group overflow-hidden border border-white/10 bg-[#25211c] transition duration-500 hover:-translate-y-1 hover:border-[#f4c542]/45 dark:bg-[#171512] ${index === 0 ? 'lg:col-span-7' : 'lg:col-span-5'}`}
+              className={`group overflow-hidden rounded-lg border border-[#1d1b18]/10 bg-[#f7f2ea] shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(60,48,34,0.12)] dark:border-white/10 dark:bg-[#1e1c18] ${index === 0 ? 'lg:col-span-7' : 'lg:col-span-5'}`}
             >
-              <div className={`relative overflow-hidden bg-[#332d25] ${index === 0 ? 'h-80' : 'h-56'}`}>
+              <div className={`relative overflow-hidden bg-[#ebe2d5] ${index === 0 ? 'h-80' : 'h-56'}`}>
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
-                  className="h-full w-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
+                  className="h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#191714] via-transparent to-transparent dark:from-[#0d0c0a]" />
-                <span className="absolute left-5 top-5 rounded-full bg-[#f5f0e8] px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#191714] dark:bg-[#f4c542]">
+                <span className="absolute left-5 top-5 rounded-full bg-[#f7f2ea]/90 px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#1d1b18] dark:bg-[#11110f]/85 dark:text-[#f7f2ea]">
                   {project.eyebrow}
                 </span>
                 <span className="absolute bottom-5 right-5 font-mono text-5xl font-black text-white/80">
@@ -85,47 +73,37 @@ export function Projects() {
               <div className="p-6">
                 <div className="flex items-start justify-between gap-5">
                   <div>
-                    <h3 className="text-3xl font-black text-white">{project.title}</h3>
-                    <p className="mt-4 text-base leading-7 text-[#c9bca9]">{project.problemSolved}</p>
+                    <h3 className="text-3xl font-black text-[#1d1b18] dark:text-[#f7f2ea]">{project.title}</h3>
+                    <p className="mt-4 text-base leading-7 text-[#6b6258] dark:text-[#cfc4b6]">{project.problemSolved}</p>
                   </div>
                   <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#d95f35] text-white sm:flex">
                     <ArrowUpRight className="h-5 w-5" />
                   </span>
                 </div>
 
-                <div className="mt-7 grid gap-4 border-y border-white/10 py-5 sm:grid-cols-2">
+                <div className="mt-7 grid gap-4 border-y border-[#1d1b18]/10 py-5 dark:border-white/10 sm:grid-cols-2">
                   <div className="flex gap-3">
-                    <Target className="mt-1 h-5 w-5 shrink-0 text-[#f4c542]" />
+                    <Target className="mt-1 h-5 w-5 shrink-0 text-[#d95f35]" />
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#8f8170]">Outcome</p>
-                      <p className="mt-1 font-semibold text-[#f5f0e8]">{project.result}</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#9b8f7f]">Outcome</p>
+                      <p className="mt-1 font-semibold text-[#1d1b18] dark:text-[#f7f2ea]">{project.result}</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <Layers className="mt-1 h-5 w-5 shrink-0 text-[#f4c542]" />
+                    <Layers className="mt-1 h-5 w-5 shrink-0 text-[#d95f35]" />
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#8f8170]">Stack</p>
-                      <p className="mt-1 font-semibold text-[#f5f0e8]">{project.tools.join(', ')}</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#9b8f7f]">Stack</p>
+                      <p className="mt-1 font-semibold text-[#1d1b18] dark:text-[#f7f2ea]">{project.tools.join(', ')}</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href={project.codeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2.5 font-semibold text-[#f5f0e8] transition hover:bg-white/10"
-                  >
+                  <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#1d1b18]/10 px-4 py-2.5 font-semibold text-[#1d1b18] transition hover:bg-white dark:border-white/10 dark:text-[#f7f2ea] dark:hover:bg-white/10">
                     <Github className="h-4 w-4" />
                     Source
                   </a>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d95f35] px-4 py-2.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#c64f2a]"
-                  >
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1d1b18] px-4 py-2.5 font-semibold text-[#f7f2ea] transition hover:-translate-y-0.5 hover:bg-[#2e2a25] dark:bg-[#f4c542] dark:text-[#1d1b18] dark:hover:bg-[#ffd95e]">
                     Live
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
