@@ -17,7 +17,7 @@ export function Contact() {
         <div>
           <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#18d6c4]">/Contact</p>
           <h2 className="mt-4 max-w-5xl text-5xl font-black uppercase leading-[0.84] sm:text-7xl lg:text-8xl">
-            Start a build with me.
+            Start a project with me.
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-[#b7cac5]">
             I am open to computer science internship roles, project collaborations, and conversations about building useful apps.

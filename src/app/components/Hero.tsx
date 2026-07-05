@@ -47,46 +47,15 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
         </div>
       </header>
 
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 pb-16 pt-12 lg:grid-cols-[0.76fr_1.24fr] lg:items-end lg:pb-20 lg:pt-16">
-        <aside className="order-2 grid gap-4 lg:order-1">
-          <div className="overflow-hidden rounded-[8px] border border-[#071014]/15 bg-[#f7fbf8] p-3 shadow-[0_24px_60px_rgba(7,16,20,0.12)] dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:shadow-black/35">
-            <img
-              src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
-              alt="Developer workspace with code on screen"
-              className="h-72 w-full rounded-[6px] object-cover grayscale-[18%] sm:h-96 lg:h-[30rem]"
-            />
-            <div className="mt-3 grid gap-2 sm:grid-cols-3">
-              {['Flutter apps', 'ML tools', 'Database design'].map((item) => (
-                <span key={item} className="border border-[#071014]/15 bg-[#eaf5f3] px-3 py-2 text-center font-mono text-xs font-semibold text-[#51635f] dark:border-[#eef8f6]/15 dark:bg-[#071014] dark:text-[#a7bbb6]">
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-[8px] border border-[#071014]/15 bg-[#071014] p-5 text-[#eef8f6] dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014]">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#0b776e]">/Status</p>
-              <p className="mt-4 text-2xl font-black uppercase leading-none">Computer Science Intern</p>
-            </div>
-            <div className="rounded-[8px] border border-[#071014]/15 bg-[#d9ff5d] p-5 text-[#071014] dark:border-[#eef8f6]/15">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#38530f]">/Location</p>
-              <p className="mt-4 flex items-center gap-2 text-2xl font-black uppercase leading-none">
-                <MapPin className="h-5 w-5" />
-                Philippines
-              </p>
-            </div>
-          </div>
-        </aside>
-
-        <div className="order-1 lg:order-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 pb-16 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pb-20 lg:pt-16">
+        <div className="order-1">
           <div className="mb-6 flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 border border-[#071014]/15 bg-[#f7fbf8] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#071014] shadow-sm dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:text-[#eef8f6]">
               <Sparkles className="h-4 w-4 text-[#18d6c4]" />
-              Full-stack development
+              Computer Science Intern
             </span>
             <span className="inline-flex items-center gap-2 border border-[#071014]/15 bg-[#f7fbf8] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#071014] shadow-sm dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:text-[#eef8f6]">
-              Backend systems / Machine learning tools
+              Full-stack development / Backend systems
             </span>
           </div>
 
@@ -94,7 +63,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
             Jullian Anjelo C. Vidal
           </p>
 
-          <h1 className="mt-4 max-w-5xl text-6xl font-black uppercase leading-[0.78] text-[#071014] sm:text-8xl md:text-9xl lg:text-[9.25rem] xl:text-[10.5rem] dark:text-[#eef8f6]">
+          <h1 className="mt-4 max-w-5xl text-6xl font-black uppercase leading-[0.78] text-[#071014] sm:text-8xl md:text-9xl lg:text-[8.25rem] xl:text-[9.5rem] dark:text-[#eef8f6]">
             Anjelo
             <span className="block text-[#0b8e83] dark:text-[#18d6c4]">Vidal</span>
           </h1>
@@ -131,6 +100,34 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
             </a>
           </div>
         </div>
+
+        <aside className="order-2 grid gap-4">
+          <div className="relative overflow-hidden rounded-[8px] border border-[#071014]/15 bg-[#071014] p-3 shadow-[0_24px_60px_rgba(7,16,20,0.18)] dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:shadow-black/35">
+            <img
+              src="/images/anjelo-profile.png"
+              alt="Portrait of Jullian Anjelo C. Vidal"
+              className="h-[30rem] w-full rounded-[6px] object-cover object-top sm:h-[36rem] lg:h-[39rem]"
+            />
+            <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-b-[6px] bg-gradient-to-t from-[#071014]/95 via-[#071014]/50 to-transparent p-5 pt-20 text-[#eef8f6]">
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4]">/Portfolio 2026</p>
+              <p className="mt-2 text-3xl font-black uppercase leading-none">Computer Science Intern</p>
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-[8px] border border-[#071014]/15 bg-[#071014] p-5 text-[#eef8f6] dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014]">
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#0b776e]">/Status</p>
+              <p className="mt-4 text-2xl font-black uppercase leading-none">Computer Science Intern</p>
+            </div>
+            <div className="rounded-[8px] border border-[#071014]/15 bg-[#d9ff5d] p-5 text-[#071014] dark:border-[#eef8f6]/15">
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#38530f]">/Location</p>
+              <p className="mt-4 flex items-center gap-2 text-2xl font-black uppercase leading-none">
+                <MapPin className="h-5 w-5" />
+                Philippines
+              </p>
+            </div>
+          </div>
+        </aside>
       </div>
 
       <div className="relative z-10 border-t border-[#071014]/15 bg-[#071014] py-4 text-[#eef8f6] dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014]">
