@@ -27,6 +27,12 @@ export function About() {
   return (
     <section id="about" className="bg-[#f5f0e8] px-4 py-24 transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#11100e]">
       <div className="mx-auto max-w-7xl">
+        <div className="mb-16 border-y border-[#191714]/10 py-10 dark:border-white/10">
+          <p className="max-w-6xl text-[clamp(2.25rem,5.4vw,5.5rem)] font-black uppercase leading-[0.92] text-[#191714] dark:text-[#f5f0e8]">
+            I turn rough ideas into software that feels clear, useful, and ready to improve.
+          </p>
+        </div>
+
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="lg:sticky lg:top-10">
             <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#d95f35]">About</p>

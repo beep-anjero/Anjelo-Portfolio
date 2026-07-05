@@ -19,8 +19,9 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
         <a href="#" className="font-mono text-sm font-semibold tracking-[0.24em] text-[#191714] transition-colors dark:text-[#f5f0e8]">
           JACV
         </a>
-        <nav className="hidden items-center gap-7 text-sm font-medium text-[#575047] sm:flex dark:text-[#b9ad9e]">
-          <a className="transition hover:text-[#191714] dark:hover:text-white" href="#projects">Work</a>
+        <nav className="hidden items-center gap-7 text-sm font-bold uppercase tracking-[0.04em] text-[#575047] sm:flex dark:text-[#b9ad9e]">
+          <a className="transition hover:text-[#191714] dark:hover:text-white" href="#projects">Projects</a>
+          <a className="transition hover:text-[#191714] dark:hover:text-white" href="#services">Services</a>
           <a className="transition hover:text-[#191714] dark:hover:text-white" href="#about">About</a>
           <a className="transition hover:text-[#191714] dark:hover:text-white" href="#contact">Contact</a>
         </nav>
@@ -39,7 +40,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
             aria-label="Email Anjelo"
           >
             <Mail className="h-4 w-4" />
-            <span className="hidden text-sm font-semibold sm:inline">Email me</span>
+            <span className="hidden text-sm font-bold uppercase tracking-[0.04em] sm:inline">Start a build</span>
           </a>
         </div>
       </header>
@@ -58,7 +59,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
           </div>
 
           <p className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-[#d95f35] sm:text-base">
-            Full-stack development & Backend systems & Data tools
+            Full-stack development & Backend systems & Machine learning tools
           </p>
 
           <h1 className="mt-5 max-w-6xl text-[clamp(4.25rem,13vw,11.5rem)] font-black uppercase leading-[0.78] tracking-normal text-[#191714] transition-colors dark:text-[#f5f0e8]">
@@ -66,7 +67,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
             <span className="block text-[#d95f35]">Vidal</span>
           </h1>
 
-          <p className="mt-7 max-w-3xl text-lg font-medium leading-8 text-[#3f3932] transition-colors dark:text-[#f5f0e8] sm:text-xl">
+          <p className="mt-7 max-w-3xl text-lg font-semibold leading-8 text-[#3f3932] transition-colors dark:text-[#f5f0e8] sm:text-xl">
             I design and build practical software for student, business, and data workflows: clear interfaces, sturdy backend logic, and products that make sense from the first click.
           </p>
 
@@ -136,8 +137,8 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 border-y border-[#191714]/10 bg-[#d95f35] py-3 text-[#f5f0e8] dark:border-white/10">
-        <div className="animate-[marquee_24s_linear_infinite] whitespace-nowrap font-mono text-sm font-bold uppercase tracking-[0.22em]">
+      <div className="absolute bottom-0 left-0 right-0 z-10 h-11 overflow-hidden border-y border-[#191714]/10 bg-[#d95f35] text-[#f5f0e8] dark:border-white/10">
+        <div className="absolute left-0 top-1/2 w-max -translate-y-1/2 animate-[marquee_24s_linear_infinite] whitespace-nowrap font-mono text-sm font-bold uppercase tracking-[0.22em]">
           <span className="mx-6">Build useful software</span>
           <span className="mx-6">Design clean workflows</span>
           <span className="mx-6">Ship maintainable systems</span>

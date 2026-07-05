@@ -72,8 +72,8 @@ export function Contact() {
         </p>
       </div>
 
-      <div className="mx-auto mt-8 max-w-7xl overflow-hidden border-y border-[#191714]/10 bg-[#191714] py-3 text-[#f5f0e8] dark:border-white/10">
-        <div className="animate-[marquee_22s_linear_infinite] whitespace-nowrap font-mono text-sm font-bold uppercase tracking-[0.22em]">
+      <div className="relative mx-auto mt-8 h-11 max-w-7xl overflow-hidden border-y border-[#191714]/10 bg-[#d95f35] text-[#f5f0e8] dark:border-white/10">
+        <div className="absolute left-0 top-1/2 w-max -translate-y-1/2 animate-[marquee_22s_linear_infinite] whitespace-nowrap font-mono text-sm font-bold uppercase tracking-[0.22em]">
           <span className="mx-6">Available for junior software roles</span>
           <span className="mx-6">Open to project collaborations</span>
           <span className="mx-6">Backend-first full-stack development</span>
@@ -82,6 +82,13 @@ export function Contact() {
           <span className="mx-6">Backend-first full-stack development</span>
         </div>
       </div>
+
+      <nav className="mx-auto mt-8 grid max-w-7xl gap-3 text-[clamp(2rem,5vw,5rem)] font-black uppercase leading-none text-[#191714] dark:text-[#f5f0e8] sm:grid-cols-2 lg:grid-cols-4">
+        <a className="border border-[#191714]/10 p-4 transition hover:bg-[#191714] hover:text-[#f5f0e8] dark:border-white/10 dark:hover:bg-[#f5f0e8] dark:hover:text-[#191714]" href="#projects">Projects</a>
+        <a className="border border-[#191714]/10 p-4 transition hover:bg-[#191714] hover:text-[#f5f0e8] dark:border-white/10 dark:hover:bg-[#f5f0e8] dark:hover:text-[#191714]" href="#services">Services</a>
+        <a className="border border-[#191714]/10 p-4 transition hover:bg-[#191714] hover:text-[#f5f0e8] dark:border-white/10 dark:hover:bg-[#f5f0e8] dark:hover:text-[#191714]" href="#about">About</a>
+        <a className="border border-[#191714]/10 p-4 transition hover:bg-[#191714] hover:text-[#f5f0e8] dark:border-white/10 dark:hover:bg-[#f5f0e8] dark:hover:text-[#191714]" href="#contact">Contact</a>
+      </nav>
     </footer>
   );
 }

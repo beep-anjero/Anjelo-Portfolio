@@ -26,17 +26,17 @@ const powerTrio = [
 
 export function PowerTrio() {
   return (
-    <section className="bg-[#fdfaf4] px-4 py-24 transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#171512]">
+    <section id="services" className="bg-[#fdfaf4] px-4 py-24 transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#171512]">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+        <div className="grid gap-8 border-b border-[#191714]/10 pb-10 dark:border-white/10 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
           <div>
-            <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#d95f35]">Core Stack</p>
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#d95f35]">Services</p>
             <h2 className="mt-4 text-[clamp(3rem,7vw,6.5rem)] font-black uppercase leading-[0.86] text-[#191714] transition-colors dark:text-[#f5f0e8]">
-              Tools for practical products.
+              What I can build.
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-[#575047] transition-colors dark:text-[#c9bca9] lg:justify-self-end">
-            I like stacks that are boring in production and expressive while building. These are the languages I use to move from backend logic to usable interfaces.
+            A focused set of development services shaped like the reference site: bold, simple, and easy to scan.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export function PowerTrio() {
                   <span className="font-mono text-sm text-[#8a7b6a] dark:text-[#b9ad9e]">0{index + 1}</span>
                 </div>
 
-                <h3 className="mt-7 text-3xl font-black text-[#191714] dark:text-[#f5f0e8]">{tech.name}</h3>
+                <h3 className="mt-7 text-3xl font-black uppercase leading-none text-[#191714] dark:text-[#f5f0e8]">{tech.name}</h3>
                 <p className="mt-3 min-h-24 text-base leading-7 text-[#575047] dark:text-[#c9bca9]">{tech.description}</p>
 
                 <div className="mt-7 flex flex-wrap gap-2">

@@ -40,14 +40,25 @@ export function Projects() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 grid gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#f4c542]">Selected Work</p>
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-[#f4c542]">Featured builds</p>
             <h2 className="mt-4 max-w-5xl text-[clamp(3.5rem,9vw,8.5rem)] font-black uppercase leading-[0.82] tracking-normal">
               Work with a job to do.
             </h2>
           </div>
-          <p className="max-w-md text-lg leading-8 text-[#c9bca9]">
-            Each build solves a concrete problem: managing operations, predicting outcomes, or making database design easier to understand.
-          </p>
+          <div className="max-w-md">
+            <p className="text-lg leading-8 text-[#c9bca9]">
+              Each build solves a concrete problem: managing operations, predicting outcomes, or making database design easier to understand.
+            </p>
+            <a
+              href="https://github.com/beep-anjero"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 font-bold uppercase tracking-[0.04em] text-[#f5f0e8] transition hover:bg-white/10"
+            >
+              All builds
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-12">
