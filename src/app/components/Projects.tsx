@@ -36,7 +36,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="bg-[#191714] px-4 py-24 text-[#f5f0e8] sm:px-6 lg:px-8">
+    <section id="projects" className="bg-[#191714] px-4 py-24 text-[#f5f0e8] transition-colors duration-500 sm:px-6 lg:px-8 dark:bg-[#0d0c0a]">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
@@ -54,7 +54,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <article
               key={project.title}
-              className={`group overflow-hidden border border-white/10 bg-[#25211c] transition duration-500 hover:-translate-y-1 hover:border-[#f4c542]/45 ${index === 0 ? 'lg:col-span-2' : ''}`}
+              className={`group overflow-hidden border border-white/10 bg-[#25211c] transition duration-500 hover:-translate-y-1 hover:border-[#f4c542]/45 dark:bg-[#171512] ${index === 0 ? 'lg:col-span-2' : ''}`}
             >
               <div className={`relative overflow-hidden bg-[#332d25] ${index === 0 ? 'h-80' : 'h-56'}`}>
                 <ImageWithFallback
@@ -62,8 +62,8 @@ export function Projects() {
                   alt={project.title}
                   className="h-full w-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#191714] via-transparent to-transparent" />
-                <span className="absolute left-5 top-5 rounded-full bg-[#f5f0e8] px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#191714]">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#191714] via-transparent to-transparent dark:from-[#0d0c0a]" />
+                <span className="absolute left-5 top-5 rounded-full bg-[#f5f0e8] px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#191714] dark:bg-[#f4c542]">
                   {project.eyebrow}
                 </span>
               </div>
