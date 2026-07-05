@@ -30,7 +30,7 @@ export function PowerTrio() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 border-b border-[#071014]/15 pb-10 dark:border-[#eef8f6]/15 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <div>
-            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">/Services</p>
+            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">Services</p>
             <h2 className="mt-4 text-5xl font-black uppercase leading-[0.84] sm:text-7xl lg:text-8xl">
               What I can build.
             </h2>
@@ -51,7 +51,7 @@ export function PowerTrio() {
                   <div className={`flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-[8px] ${tech.accent} shadow-sm transition group-hover:rotate-3`}>
                     <Icon className="h-6 w-6" />
                   </div>
-                  <span className="font-mono text-sm text-[#70847f] dark:text-[#91a5a0]">/0{index + 1}</span>
+                  <span className="font-mono text-sm text-[#70847f] dark:text-[#91a5a0]">0{index + 1}</span>
                 </div>
 
                 <h3 className="mt-7 text-4xl font-black uppercase leading-none">{tech.name}</h3>
@@ -74,7 +74,7 @@ export function PowerTrio() {
             <Database className="h-6 w-6" />
           </div>
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#496516]">/Also comfortable with</p>
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#496516]">Also comfortable with</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {['PHP', 'Dart', 'JavaScript', 'C++', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Docker', 'Git', 'AWS'].map((skill) => (
                 <span key={skill} className="border border-white/15 bg-white/10 px-3 py-1.5 font-mono text-xs dark:border-[#071014]/15 dark:bg-[#071014]/10">

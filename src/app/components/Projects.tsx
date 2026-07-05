@@ -40,7 +40,7 @@ export function Projects() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 grid gap-8 border-b border-[#071014]/15 pb-10 dark:border-[#eef8f6]/15 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">/Featured builds</p>
+            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">Featured builds</p>
             <h2 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[0.84] sm:text-7xl lg:text-8xl">
               Work with a job to do.
             </h2>
@@ -67,7 +67,7 @@ export function Projects() {
                   {project.eyebrow}
                 </span>
                 <span className="absolute bottom-5 right-5 font-mono text-6xl font-black text-white/85">
-                  /0{index + 1}
+                  0{index + 1}
                 </span>
               </div>
 

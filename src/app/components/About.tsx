@@ -35,7 +35,7 @@ export function About() {
 
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="lg:sticky lg:top-10">
-            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">/About</p>
+            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">About</p>
             <h2 className="mt-4 text-5xl font-black uppercase leading-[0.84] sm:text-7xl lg:text-8xl">
               Practical engineer. Curious builder.
             </h2>
@@ -63,7 +63,7 @@ export function About() {
             })}
 
             <div className="rounded-[8px] border border-[#071014]/15 bg-[#071014] p-6 text-[#eef8f6] sm:col-span-2 dark:border-[#eef8f6]/15 dark:bg-[#d9ff5d] dark:text-[#071014]">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#496516]">/Working style</p>
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#496516]">Working style</p>
               <p className="mt-4 text-2xl font-black uppercase leading-tight sm:text-3xl">
                 I like software that is direct, maintainable, and easy to explain to the next person who has to improve it.
               </p>

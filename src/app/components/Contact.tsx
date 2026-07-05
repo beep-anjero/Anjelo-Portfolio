@@ -15,7 +15,7 @@ export function Contact() {
     <footer id="contact" className="bg-[#071014] px-4 py-20 text-[#eef8f6] transition-colors duration-500 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
-          <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#18d6c4]">/Contact</p>
+          <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#18d6c4]">Contact</p>
           <h2 className="mt-4 max-w-5xl text-5xl font-black uppercase leading-[0.84] sm:text-7xl lg:text-8xl">
             Start a project with me.
           </h2>

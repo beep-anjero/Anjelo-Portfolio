@@ -21,10 +21,10 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
         </a>
 
         <nav className="hidden items-center gap-7 text-sm font-semibold text-[#51635f] dark:text-[#a7bbb6] md:flex">
-          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#projects">/Work</a>
-          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#services">/Services</a>
-          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#about">/About</a>
-          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#contact">/Contact</a>
+          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#projects">Work</a>
+          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#services">Services</a>
+          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#about">About</a>
+          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#contact">Contact</a>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -39,10 +39,10 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
           <a
             href="mailto:anjelovidal28@gmail.com"
             className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] border border-[#071014]/15 bg-[#071014] text-[#eef8f6] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:bg-[#18d6c4] hover:text-[#071014] sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2 dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014] dark:hover:bg-[#18d6c4]"
-            aria-label="Email Anjelo"
+            aria-label="Start Project"
           >
             <Mail className="h-4 w-4" />
-            <span className="hidden text-sm font-semibold sm:inline">Start a build</span>
+            <span className="hidden text-sm font-semibold sm:inline">Start Project</span>
           </a>
         </div>
       </header>
@@ -109,18 +109,18 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
               className="h-[30rem] w-full rounded-[6px] object-cover object-top sm:h-[36rem] lg:h-[39rem]"
             />
             <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-b-[6px] bg-gradient-to-t from-[#071014]/95 via-[#071014]/50 to-transparent p-5 pt-20 text-[#eef8f6]">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4]">/Portfolio 2026</p>
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4]">Portfolio 2026</p>
               <p className="mt-2 text-3xl font-black uppercase leading-none">Computer Science Intern</p>
             </div>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="rounded-[8px] border border-[#071014]/15 bg-[#071014] p-5 text-[#eef8f6] dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014]">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#0b776e]">/Status</p>
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#0b776e]">Status</p>
               <p className="mt-4 text-2xl font-black uppercase leading-none">Computer Science Intern</p>
             </div>
             <div className="rounded-[8px] border border-[#071014]/15 bg-[#d9ff5d] p-5 text-[#071014] dark:border-[#eef8f6]/15">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#38530f]">/Location</p>
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#38530f]">Location</p>
               <p className="mt-4 flex items-center gap-2 text-2xl font-black uppercase leading-none">
                 <MapPin className="h-5 w-5" />
                 Philippines
@@ -135,11 +135,11 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
           {[0, 1].map((group) => (
             <div key={group} className="flex min-w-[50%] gap-8">
               <span>Full-stack development</span>
-              <span className="text-[#18d6c4] dark:text-[#0b8e83]">/</span>
+              <span className="text-[#18d6c4] dark:text-[#0b8e83]">•</span>
               <span>Backend systems</span>
-              <span className="text-[#d9ff5d] dark:text-[#0b776e]">/</span>
+              <span className="text-[#d9ff5d] dark:text-[#0b776e]">•</span>
               <span>Machine learning tools</span>
-              <span className="text-[#ff6b6b]">/</span>
+              <span className="text-[#ff6b6b]">•</span>
               <span>Clear interfaces</span>
             </div>
           ))}
