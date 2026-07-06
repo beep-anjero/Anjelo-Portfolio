@@ -1,5 +1,5 @@
 import { ArrowUpRight, Github, Target, Cpu } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 const projects = [
   {
@@ -12,13 +12,13 @@ const projects = [
     liveUrl: 'https://github.com/beep-anjero/MicroBiz#readme',
   },
   {
-    title: 'Student Result Predictor',
+    title: 'ScoreCast',
     eyebrow: 'ML web application',
     problemSolved: 'A prediction interface for academic outcomes, connecting preprocessing, model training, and real-time Flask predictions behind a simple web flow.',
     result: 'Model to browser pipeline',
     tools: ['Python', 'Flask', 'Scikit-learn', 'HTML/CSS'],
-    codeUrl: 'https://github.com/beep-anjero/Student_result_predictor',
-    liveUrl: 'https://student-result-predictor-theta.vercel.app/',
+    codeUrl: 'https://github.com/beep-anjero/ScoreCast',
+    liveUrl: 'https://score-cast.vercel.app/',
   },
   {
     title: 'JejeNorm',
@@ -32,7 +32,7 @@ const projects = [
 ];
 
 export function Projects() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -40,12 +40,12 @@ export function Projects() {
     },
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'spring', stiffness: 70, damping: 14 },
+      transition: { type: 'spring' as const, stiffness: 70, damping: 14 },
     },
   };
 
