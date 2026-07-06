@@ -61,7 +61,7 @@ export function Contact() {
                 <span>GitHub</span>
               </a>
               <a
-                href="www.linkedin.com/in/anjelo-vidal"
+                href="https://www.linkedin.com/in/anjelo-vidal/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-5 py-4 font-mono text-xs font-bold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-foreground hover:bg-secondary active:scale-95"
