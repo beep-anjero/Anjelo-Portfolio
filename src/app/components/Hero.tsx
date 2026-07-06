@@ -157,13 +157,13 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
         {/* Right Side: Profile Bento block */}
         <motion.aside variants={itemVariants} className="order-2 grid gap-4 lg:sticky lg:top-28">
           <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-3 shadow-xl group">
-            <div className="relative h-[28rem] w-full overflow-hidden rounded-xl bg-muted/30 sm:h-[34rem] lg:h-[36rem]">
+            <div className="relative h-[20rem] w-full overflow-hidden rounded-xl bg-muted/30 sm:h-[24rem] lg:h-[26rem]">
               <img
                 src="/images/anjelo-profile.png"
                 alt="Portrait of Jullian Anjelo C. Vidal"
-                className="h-full w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.03] filter grayscale group-hover:grayscale-0"
+                className="h-full w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.03]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080809] via-[#080809]/30 to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-90" />
               <div className="absolute inset-0 portfolio-grid opacity-10 mix-blend-overlay" />
               
               <div className="absolute inset-x-4 bottom-4 rounded-xl border border-white/5 bg-black/45 p-5 backdrop-blur-md text-white">
