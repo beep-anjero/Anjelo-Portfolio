@@ -1,4 +1,5 @@
-import { Blocks, Code2, Layers, Zap } from 'lucide-react';
+import { Blocks, Code2, Layers, Zap, BookOpen } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const principles = [
   {
@@ -24,51 +25,94 @@ const principles = [
 ];
 
 export function About() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { type: 'spring', stiffness: 80, damping: 15 },
+    },
+  };
+
   return (
-    <section id="about" className="border-b border-[#071014]/15 bg-[#eef8f6] px-4 py-20 text-[#071014] transition-colors duration-500 sm:px-6 lg:px-8 lg:py-24 dark:border-[#eef8f6]/15 dark:bg-[#09161a] dark:text-[#eef8f6]">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-14 border-y border-[#071014]/15 py-8 dark:border-[#eef8f6]/15">
-          <p className="max-w-6xl text-4xl font-black uppercase leading-[0.92] sm:text-6xl lg:text-7xl">
-            I turn rough ideas into software that feels clear, useful, and ready to improve.
-          </p>
-        </div>
+    <section id="about" className="relative overflow-hidden border-b border-border bg-background py-20 px-4 text-foreground transition-colors duration-500 sm:px-6 lg:px-8 lg:py-28">
+      {/* Background grid */}
+      <div className="absolute inset-0 portfolio-grid opacity-30 pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl relative z-10">
 
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="lg:sticky lg:top-10">
-            <p className="font-mono text-sm uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4]">About</p>
-            <h2 className="mt-4 text-5xl font-black uppercase leading-[0.84] sm:text-7xl lg:text-8xl">
-              Practical engineer. Curious builder.
+          {/* About Column */}
+          <div className="lg:sticky lg:top-28">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--accent)]">Philosophy</p>
+            <h2 className="mt-4 text-3xl font-black uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              A developer focused on backend systems and clean code.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-[#435550] dark:text-[#b7cac5]">
+            <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
               I am Jullian Anjelo C. Vidal, a Computer Science Intern who enjoys building the quiet parts of software that make the visible parts work well.
             </p>
-            <p className="mt-5 text-lg leading-8 text-[#435550] dark:text-[#b7cac5]">
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               My projects sit across mobile apps, machine learning tools, and database systems. The common thread is simple: make complicated work easier for the person using the product.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {principles.map((item) => {
+          {/* Principles Column (Article Feed Style) */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="grid gap-4 sm:grid-cols-1"
+          >
+            {principles.map((item, index) => {
               const Icon = item.icon;
 
               return (
-                <article key={item.title} className="rounded-[8px] border border-[#071014]/15 bg-[#f7fbf8] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#0b8e83] dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:hover:border-[#18d6c4]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-[8px] bg-[#071014] text-[#18d6c4] dark:bg-[#eef8f6] dark:text-[#071014]">
-                    <Icon className="h-6 w-6" />
+                <motion.article 
+                  key={item.title}
+                  variants={itemVariants}
+                  className="rounded-2xl border border-border bg-card p-6 shadow-sm hover:border-[var(--accent)]/55 transition-all duration-300 group flex items-start gap-5 cursor-default"
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary text-foreground group-hover:bg-[var(--accent)] group-hover:text-[#080809] transition-all duration-300 shadow-sm">
+                    <Icon className="h-5.5 w-5.5" />
                   </div>
-                  <h3 className="mt-6 text-xl font-black uppercase leading-tight">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-[#435550] dark:text-[#b7cac5]">{item.copy}</p>
-                </article>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60">Principle 0{index + 1}</span>
+                    </div>
+                    <h3 className="mt-2 text-xl font-black uppercase tracking-tight text-foreground group-hover:text-[var(--accent)] transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {item.copy}
+                    </p>
+                  </div>
+                </motion.article>
               );
             })}
 
-            <div className="rounded-[8px] border border-[#071014]/15 bg-[#071014] p-6 text-[#eef8f6] sm:col-span-2 dark:border-[#eef8f6]/15 dark:bg-[#d9ff5d] dark:text-[#071014]">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#496516]">Working style</p>
-              <p className="mt-4 text-2xl font-black uppercase leading-tight sm:text-3xl">
+            {/* Working Style Bento Card */}
+            <motion.div 
+              variants={itemVariants}
+              className="rounded-2xl border border-border bg-card p-6 sm:p-8 text-foreground hover:border-[var(--accent)]/55 transition-all duration-300 group cursor-default"
+            >
+              <div className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-widest text-[var(--accent)] font-bold">
+                <BookOpen className="h-3.5 w-3.5" />
+                <span>Working Style</span>
+              </div>
+              <p className="mt-5 text-2xl font-black uppercase leading-tight tracking-tight sm:text-3xl group-hover:text-[var(--accent)] transition-colors duration-300">
                 I like software that is direct, maintainable, and easy to explain to the next person who has to improve it.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

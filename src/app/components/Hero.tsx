@@ -1,4 +1,5 @@
 import { ArrowDown, ArrowUpRight, Github, Mail, MapPin, Moon, Sparkles, Sun } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 type HeroProps = {
   isDark: boolean;
@@ -10,137 +11,198 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: 'spring', stiffness: 80, damping: 15 },
+    },
+  };
+
   return (
-    <section className="relative overflow-hidden border-b border-[#071014]/15 bg-[#eaf5f3] px-4 text-[#071014] transition-colors duration-500 sm:px-6 lg:px-8 dark:border-[#eef8f6]/15 dark:bg-[#071014] dark:text-[#eef8f6]">
-      <div className="absolute inset-0 portfolio-grid opacity-45" />
-      <div className="absolute inset-x-0 top-0 h-24 border-b border-[#071014]/10 bg-[#eaf5f3]/80 backdrop-blur dark:border-[#eef8f6]/10 dark:bg-[#071014]/80" />
+    <section className="relative overflow-hidden border-b border-border bg-background pt-24 px-4 text-foreground transition-colors duration-500 sm:px-6 lg:px-8">
+      {/* Mesh grid pattern background */}
+      <div className="absolute inset-0 portfolio-grid opacity-50 pointer-events-none" />
 
-      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between py-5">
-        <a href="#" className="font-mono text-sm font-semibold uppercase tracking-[0.24em] text-[#071014] dark:text-[#eef8f6]">
-          JACV / 26
-        </a>
-
-        <nav className="hidden items-center gap-7 text-sm font-semibold text-[#51635f] dark:text-[#a7bbb6] md:flex">
-          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#projects">Work</a>
-          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#services">Services</a>
-          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#about">About</a>
-          <a className="transition hover:text-[#071014] dark:hover:text-white" href="#contact">Contact</a>
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={onToggleTheme}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] border border-[#071014]/15 bg-[#f7fbf8]/80 text-[#071014] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-[#18d6c4] dark:border-[#eef8f6]/15 dark:bg-[#0d1b20]/80 dark:text-[#eef8f6] dark:hover:border-[#18d6c4]"
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
-          <a
-            href="mailto:anjelovidal28@gmail.com"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] border border-[#071014]/15 bg-[#071014] text-[#eef8f6] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:bg-[#18d6c4] hover:text-[#071014] sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2 dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014] dark:hover:bg-[#18d6c4]"
-            aria-label="Start Project"
-          >
-            <Mail className="h-4 w-4" />
-            <span className="hidden text-sm font-semibold sm:inline">Start Project</span>
+      {/* Floating navigation bar */}
+      <div className="fixed top-4 inset-x-4 z-40 mx-auto max-w-5xl">
+        <header className="flex items-center justify-between rounded-full border border-border/80 bg-background/60 px-6 py-3.5 shadow-lg backdrop-blur-md">
+          <a href="#" className="font-mono text-sm font-black uppercase tracking-[0.24em] text-foreground transition hover:text-[var(--accent)]">
+            JACV / 26
           </a>
-        </div>
-      </header>
 
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 pb-16 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pb-20 lg:pt-16">
-        <div className="order-1">
-          <div className="mb-6 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 border border-[#071014]/15 bg-[#f7fbf8] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#071014] shadow-sm dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:text-[#eef8f6]">
-              <Sparkles className="h-4 w-4 text-[#18d6c4]" />
-              Computer Science Intern
-            </span>
-            <span className="inline-flex items-center gap-2 border border-[#071014]/15 bg-[#f7fbf8] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#071014] shadow-sm dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:text-[#eef8f6]">
-              Full-stack development / Backend systems
-            </span>
+          <nav className="hidden items-center gap-8 text-xs font-bold uppercase tracking-wider text-muted-foreground md:flex">
+            <a className="transition hover:text-foreground" href="#projects">Work</a>
+            <a className="transition hover:text-foreground" href="#services">Stack</a>
+            <a className="transition hover:text-foreground" href="#about">Principles</a>
+            <a className="transition hover:text-foreground" href="#certifications">Credentials</a>
+            <a className="transition hover:text-foreground" href="#contact">Contact</a>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={onToggleTheme}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/50 text-foreground transition-all duration-300 hover:border-[var(--accent)] hover:text-[var(--accent)] active:scale-95"
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+            <a
+              href="mailto:anjelovidal28@gmail.com"
+              className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground transition-all duration-300 hover:bg-[var(--accent)] hover:text-[#080809] active:scale-95"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              <span>Connect</span>
+            </a>
           </div>
+        </header>
+      </div>
 
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.24em] text-[#0b8e83] dark:text-[#18d6c4] sm:text-sm">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 mx-auto grid max-w-7xl gap-12 pb-16 pt-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:pb-24 lg:pt-16"
+      >
+        {/* Left Side: Typography and Stats */}
+        <div className="order-1 flex flex-col justify-center">
+          <motion.div variants={itemVariants} className="mb-6 flex flex-wrap items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/65 px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] shadow-sm">
+              <Sparkles className="h-3 w-3 animate-pulse" />
+              CS Intern
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/65 px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground shadow-sm">
+              Full-Stack & Backend Systems
+            </span>
+          </motion.div>
+
+          <motion.p variants={itemVariants} className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--accent)] sm:text-sm">
             Jullian Anjelo C. Vidal
-          </p>
+          </motion.p>
 
-          <h1 className="mt-4 max-w-5xl text-6xl font-black uppercase leading-[0.78] text-[#071014] sm:text-8xl md:text-9xl lg:text-[8.25rem] xl:text-[9.5rem] dark:text-[#eef8f6]">
+          <motion.h1
+            variants={itemVariants}
+            className="mt-4 max-w-5xl text-5xl font-black uppercase leading-[0.88] tracking-tight text-foreground sm:text-7xl md:text-8xl lg:text-[5.5rem] xl:text-[6.5rem]"
+          >
             Anjelo
-            <span className="block text-[#0b8e83] dark:text-[#18d6c4]">Vidal</span>
-          </h1>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-[var(--accent)]">Vidal</span>
+          </motion.h1>
 
-          <div className="mt-7 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
-            <p className="max-w-2xl text-lg leading-8 text-[#435550] dark:text-[#b7cac5] sm:text-xl">
+          <motion.div variants={itemVariants} className="mt-8 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               I design and build practical software for student, business, and data workflows: clear interfaces, sturdy backend logic, and products that make sense from the first click.
             </p>
             <a
               href="#contact"
-              className="hidden h-20 w-20 items-center justify-center rounded-[8px] border border-[#071014]/15 bg-[#ff6b6b] text-[#071014] transition hover:-translate-y-1 hover:bg-[#d9ff5d] lg:inline-flex dark:border-[#eef8f6]/15"
+              className="hidden h-14 w-14 items-center justify-center rounded-full border border-border bg-card hover:bg-[var(--accent)] hover:text-[#080809] hover:border-[var(--accent)] transition-all duration-300 lg:inline-flex active:scale-95"
               aria-label="Go to contact"
             >
-              <ArrowUpRight className="h-8 w-8" />
+              <ArrowUpRight className="h-6 w-6" />
             </a>
-          </div>
+          </motion.div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          {/* CTAs */}
+          <motion.div variants={itemVariants} className="mt-10 flex flex-col gap-4 sm:flex-row">
             <button
               onClick={scrollToProjects}
-              className="group inline-flex items-center justify-center gap-3 rounded-[8px] bg-[#071014] px-6 py-4 text-base font-semibold text-[#eef8f6] shadow-[0_18px_45px_rgba(7,16,20,0.18)] transition hover:-translate-y-1 hover:bg-[#0b8e83] dark:bg-[#d9ff5d] dark:text-[#071014] dark:hover:bg-[#18d6c4]"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-md transition-all duration-300 hover:bg-[var(--accent)] hover:text-[#080809] active:scale-95"
             >
-              View selected work
-              <ArrowDown className="h-5 w-5 transition group-hover:translate-y-1" />
+              <span>View Selected Work</span>
+              <ArrowDown className="h-4 w-4 transition group-hover:translate-y-1" />
             </button>
             <a
               href="https://github.com/beep-anjero"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-[8px] border border-[#071014]/15 bg-[#f7fbf8]/80 px-6 py-4 text-base font-semibold text-[#071014] shadow-sm transition hover:-translate-y-1 hover:border-[#18d6c4] hover:bg-white dark:border-[#eef8f6]/15 dark:bg-[#0d1b20]/80 dark:text-[#eef8f6] dark:hover:border-[#18d6c4]"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-border bg-card px-8 py-4 text-sm font-bold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-foreground hover:bg-secondary active:scale-95"
             >
-              <Github className="h-5 w-5" />
-              GitHub
+              <Github className="h-4 w-4" />
+              <span>GitHub</span>
             </a>
-          </div>
+          </motion.div>
+
+          {/* Stats bento layout */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-12 grid grid-cols-3 gap-4 border-t border-border/60 pt-8"
+          >
+            <div>
+              <p className="font-mono text-3xl font-black text-foreground sm:text-4xl">03</p>
+              <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mt-1">Featured Builds</p>
+            </div>
+            <div>
+              <p className="font-mono text-3xl font-black text-foreground sm:text-4xl">15+</p>
+              <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mt-1">Tools & Stack</p>
+            </div>
+            <div>
+              <p className="font-mono text-3xl font-black text-[var(--accent)] sm:text-4xl">100%</p>
+              <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mt-1">Sturdy Dev</p>
+            </div>
+          </motion.div>
         </div>
 
-        <aside className="order-2 grid gap-4">
-          <div className="relative overflow-hidden rounded-[8px] border border-[#071014]/15 bg-[#071014] p-3 shadow-[0_24px_60px_rgba(7,16,20,0.18)] dark:border-[#eef8f6]/15 dark:bg-[#0d1b20] dark:shadow-black/35">
-            <img
-              src="/images/anjelo-profile.png"
-              alt="Portrait of Jullian Anjelo C. Vidal"
-              className="h-[30rem] w-full rounded-[6px] object-cover object-top sm:h-[36rem] lg:h-[39rem]"
-            />
-            <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-b-[6px] bg-gradient-to-t from-[#071014]/95 via-[#071014]/50 to-transparent p-5 pt-20 text-[#eef8f6]">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4]">Portfolio 2026</p>
-              <p className="mt-2 text-3xl font-black uppercase leading-none">Computer Science Intern</p>
+        {/* Right Side: Profile Bento block */}
+        <motion.aside variants={itemVariants} className="order-2 grid gap-4 lg:sticky lg:top-28">
+          <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-3 shadow-xl group">
+            <div className="relative h-[28rem] w-full overflow-hidden rounded-xl bg-muted/30 sm:h-[34rem] lg:h-[36rem]">
+              <img
+                src="/images/anjelo-profile.png"
+                alt="Portrait of Jullian Anjelo C. Vidal"
+                className="h-full w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.03] filter grayscale group-hover:grayscale-0"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#080809] via-[#080809]/30 to-transparent opacity-80" />
+              <div className="absolute inset-0 portfolio-grid opacity-10 mix-blend-overlay" />
+              
+              <div className="absolute inset-x-4 bottom-4 rounded-xl border border-white/5 bg-black/45 p-5 backdrop-blur-md text-white">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--accent)]">Portfolio 2026</p>
+                <p className="mt-1 text-2xl font-black uppercase leading-none tracking-tight">Anjelo Vidal</p>
+              </div>
             </div>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-[8px] border border-[#071014]/15 bg-[#071014] p-5 text-[#eef8f6] dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014]">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#18d6c4] dark:text-[#0b776e]">Status</p>
-              <p className="mt-4 text-2xl font-black uppercase leading-none">Computer Science Intern</p>
+            <div className="rounded-xl border border-border bg-card p-5 transition duration-300 hover:border-border/80">
+              <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Current Status</p>
+              <p className="mt-2 text-lg font-black uppercase leading-tight text-foreground">Computer Science Intern</p>
             </div>
-            <div className="rounded-[8px] border border-[#071014]/15 bg-[#d9ff5d] p-5 text-[#071014] dark:border-[#eef8f6]/15">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#38530f]">Location</p>
-              <p className="mt-4 flex items-center gap-2 text-2xl font-black uppercase leading-none">
-                <MapPin className="h-5 w-5" />
+            <div className="rounded-xl border border-border bg-card p-5 transition duration-300 hover:border-[var(--accent)]/50">
+              <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Location</p>
+              <p className="mt-2 flex items-center gap-1.5 text-lg font-black uppercase leading-tight text-foreground">
+                <MapPin className="h-4 w-4 text-[var(--accent)]" />
                 Philippines
               </p>
             </div>
           </div>
-        </aside>
-      </div>
+        </motion.aside>
+      </motion.div>
 
-      <div className="relative z-10 border-t border-[#071014]/15 bg-[#071014] py-4 text-[#eef8f6] dark:border-[#eef8f6]/15 dark:bg-[#eef8f6] dark:text-[#071014]">
-        <div className="marquee-track flex w-[200%] gap-8 whitespace-nowrap font-mono text-sm font-semibold uppercase tracking-[0.18em]">
+      {/* Infinite loop Marquee */}
+      <div className="relative z-10 border-y border-border/80 bg-card py-5 text-foreground overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8">
+        <div className="marquee-track flex w-[200%] gap-12 whitespace-nowrap font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
           {[0, 1].map((group) => (
-            <div key={group} className="flex min-w-[50%] gap-8">
-              <span>Full-stack development</span>
-              <span className="text-[#18d6c4] dark:text-[#0b8e83]">•</span>
-              <span>Backend systems</span>
-              <span className="text-[#d9ff5d] dark:text-[#0b776e]">•</span>
-              <span>Machine learning tools</span>
-              <span className="text-[#ff6b6b]">•</span>
-              <span>Clear interfaces</span>
+            <div key={group} className="flex min-w-[50%] justify-around gap-12">
+              <span>Full-stack Development</span>
+              <span className="text-[var(--accent)] font-black">•</span>
+              <span>Backend Systems</span>
+              <span className="text-[var(--accent)] font-black">•</span>
+              <span>Machine Learning Tools</span>
+              <span className="text-[var(--accent)] font-black">•</span>
+              <span>Clear Relational Schemas</span>
+              <span className="text-[var(--accent)] font-black">•</span>
+              <span>Clean User Interfaces</span>
             </div>
           ))}
         </div>
