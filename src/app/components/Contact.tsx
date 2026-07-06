@@ -51,19 +51,19 @@ export function Contact() {
             </button>
 
             <div className="grid grid-cols-2 gap-3">
-              <a 
-                href="https://github.com/beep-anjero" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://github.com/beep-anjero"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-5 py-4 font-mono text-xs font-bold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-foreground hover:bg-secondary active:scale-95"
               >
                 <Github className="h-4 w-4" />
                 <span>GitHub</span>
               </a>
-              <a 
-                href="https://www.linkedin.com/search/results/people/?keywords=Jullian%20Anjelo%20Vidal" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="www.linkedin.com/in/anjelo-vidal"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-5 py-4 font-mono text-xs font-bold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-foreground hover:bg-secondary active:scale-95"
               >
                 <Linkedin className="h-4 w-4" />
@@ -83,7 +83,7 @@ export function Contact() {
               <a className="transition hover:text-foreground" href="#certifications">Credentials</a>
               <a className="transition hover:text-foreground" href="#contact">Contact</a>
             </div>
-            
+
             <p className="col-span-2 sm:col-span-1 text-muted-foreground/60 mt-4 sm:mt-0">
               Copyright © {new Date().getFullYear()} Anjelo Vidal. Built with React and Tailwind.
             </p>
