@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowUpRight, Github, Mail, MapPin, Moon, Sparkles, Sun } from 'lucide-react';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 
 type HeroProps = {
   isDark: boolean;
@@ -11,7 +12,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -22,7 +23,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
