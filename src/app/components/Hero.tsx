@@ -86,7 +86,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
               CS Intern
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/65 px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground shadow-sm">
-              Full-Stack & Backend Systems
+              CS Intern & Learner
             </span>
           </motion.div>
 
@@ -104,7 +104,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
 
           <motion.div variants={itemVariants} className="mt-8 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              I design and build practical software for student, business, and data workflows: clear interfaces, sturdy backend logic, and products that make sense from the first click.
+              I am a Computer Science student intern passionate about learning cutting‑edge technologies. I build practical projects to deepen my expertise, collaborate on open‑source initiatives, and deliver clean, maintainable code that solves real‑world problems.
             </p>
             <a
               href="#contact"
@@ -197,7 +197,7 @@ export function Hero({ isDark, onToggleTheme }: HeroProps) {
             <div key={group} className="flex min-w-[50%] justify-around gap-12">
               <span>Full-stack Development</span>
               <span className="text-[var(--accent)] font-black">•</span>
-              <span>Backend Systems</span>
+              <span>CS Intern & Learner</span>
               <span className="text-[var(--accent)] font-black">•</span>
               <span>Machine Learning Tools</span>
               <span className="text-[var(--accent)] font-black">•</span>

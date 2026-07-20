@@ -6,6 +6,7 @@ import { Certifications } from "./components/Certifications";
 import { Contact } from "./components/Contact";
 import { useEffect, useState } from "react";
 
+
 function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hidden, setHidden] = useState(true);
@@ -77,6 +78,8 @@ export default function App() {
     return savedTheme ? savedTheme === "dark" : true;
   });
 
+
+
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
     window.localStorage.setItem("theme", isDark ? "dark" : "light");
@@ -90,6 +93,8 @@ export default function App() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+
 
   return (
     <div className="relative min-h-screen bg-background text-foreground transition-colors duration-500 overflow-x-hidden selection:bg-[var(--accent)] selection:text-[#080809]">
