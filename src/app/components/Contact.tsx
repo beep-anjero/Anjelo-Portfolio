@@ -1,5 +1,5 @@
-import { Check, Copy, Github, Linkedin, Mail } from 'lucide-react';
 import { useState } from 'react';
+import { Check, Copy, Github, Linkedin, Mail, MessageSquare, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function Contact() {
@@ -13,81 +13,95 @@ export function Contact() {
   };
 
   return (
-    <footer id="contact" className="relative overflow-hidden bg-background border-t border-border px-4 py-20 text-foreground transition-colors duration-500 sm:px-6 lg:px-8 lg:py-28">
-      {/* Background grid */}
-      <div className="absolute inset-0 portfolio-grid opacity-20 pointer-events-none" />
+    <footer
+      id="contact"
+      className="relative overflow-hidden bg-[#FDF4D2] border-t-2 border-[#946D6D]/20 px-4 py-20 text-[#946D6D] transition-colors duration-500 sm:px-6 lg:px-8 lg:py-28 dark:bg-[#251D1D] dark:text-[#FDF4D2] dark:border-[#FDF4D2]/20"
+    >
+      <div className="absolute inset-0 portfolio-grid opacity-30 pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          {/* Contact CTA Text */}
+          {/* Contact Left Copy */}
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--accent)]">Get in Touch</p>
-            <h2 className="mt-4 max-w-4xl text-4xl font-black uppercase leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Let's work together.
+            <div className="flex items-center gap-2">
+              <MessageSquare className="h-4 w-4 text-[#A290B7] dark:text-[#B0CDE6]" />
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#A290B7] dark:text-[#B0CDE6]">
+                Get in Touch
+              </span>
+            </div>
+
+            <h2 className="mt-3 font-display text-4xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl lg:text-6xl text-[#946D6D] dark:text-[#FDF4D2]">
+              Let's build together.
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              I am open to computer science internship roles, project collaborations, and conversations about building useful web applications and backend systems.
+
+            <p className="mt-6 max-w-xl text-base font-normal leading-relaxed text-[#946D6D]/85 sm:text-lg dark:text-[#FDF4D2]/85">
+              I am open to computer science internship roles, collaborative open-source builds, and conversations about practical backend architecture and clean frontend interfaces.
             </p>
           </div>
 
-          {/* Contact Action Buttons */}
+          {/* Contact Actions & Buttons */}
           <div className="flex flex-col gap-4 sm:min-w-[24rem] lg:justify-self-end">
+            {/* Copy Email Box */}
             <button
               onClick={copyEmail}
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5 text-left transition-all duration-300 hover:border-[var(--accent)] hover:shadow-lg active:scale-98"
+              className="group flex items-center justify-between gap-4 rounded-2xl border-2 border-[#946D6D]/30 bg-white p-5 text-left shadow-[3px_3px_0px_rgba(148,109,109,0.25)] hover:border-[#946D6D] hover:shadow-[4px_4px_0px_rgba(148,109,109,0.4)] active:translate-y-0.5 transition-all dark:bg-[#322727] dark:border-[#FDF4D2]/30 dark:hover:border-[#B0CDE6]"
             >
-              <span className="flex items-center gap-4">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground group-hover:bg-[var(--accent)] group-hover:text-[#080809] transition-colors duration-300">
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#946D6D] text-[#FDF4D2] group-hover:scale-105 transition-transform dark:bg-[#B0CDE6] dark:text-[#251D1D]">
                   {copied ? <Check className="h-5 w-5" /> : <Mail className="h-5 w-5" />}
-                </span>
-                <span>
-                  <span className="block font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                    {copied ? 'Copied to Clipboard' : 'Copy Email Address'}
+                </div>
+                <div>
+                  <span className="block font-mono text-[10px] font-bold uppercase tracking-wider text-[#A290B7] dark:text-[#B0CDE6]">
+                    {copied ? 'Copied to Clipboard' : 'Direct Email Contact'}
                   </span>
-                  <span className="block font-mono text-sm font-bold text-foreground mt-0.5 break-all">{email}</span>
-                </span>
-              </span>
-              <Copy className="h-4.5 w-4.5 shrink-0 text-muted-foreground/60 transition group-hover:text-foreground" />
+                  <span className="block font-mono text-sm font-bold text-[#946D6D] dark:text-[#FDF4D2] mt-0.5 break-all">
+                    {email}
+                  </span>
+                </div>
+              </div>
+              <Copy className="h-4.5 w-4.5 shrink-0 text-[#946D6D]/60 group-hover:text-[#946D6D] transition-colors dark:text-[#FDF4D2]/60 dark:group-hover:text-[#FDF4D2]" />
             </button>
 
-            <div className="grid grid-cols-2 gap-3">
+            {/* Social Grid */}
+            <div className="grid grid-cols-2 gap-3.5">
               <a
                 href="https://github.com/beep-anjero"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-5 py-4 font-mono text-xs font-bold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-foreground hover:bg-secondary active:scale-95"
+                className="flex items-center justify-center gap-2 rounded-2xl border-2 border-[#946D6D]/30 bg-white py-3.5 px-4 font-display text-xs font-bold uppercase tracking-wider text-[#946D6D] shadow-[2px_2px_0px_rgba(148,109,109,0.2)] hover:border-[#946D6D] hover:bg-[#B0CDE6]/30 hover:shadow-[3px_3px_0px_rgba(148,109,109,0.35)] active:translate-y-0.5 transition-all dark:bg-[#322727] dark:text-[#FDF4D2] dark:border-[#FDF4D2]/30"
               >
                 <Github className="h-4 w-4" />
                 <span>GitHub</span>
               </a>
+
               <a
                 href="https://www.linkedin.com/in/anjelo-vidal/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-5 py-4 font-mono text-xs font-bold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-foreground hover:bg-secondary active:scale-95"
+                className="flex items-center justify-center gap-2 rounded-2xl border-2 border-[#946D6D]/30 bg-white py-3.5 px-4 font-display text-xs font-bold uppercase tracking-wider text-[#946D6D] shadow-[2px_2px_0px_rgba(148,109,109,0.2)] hover:border-[#946D6D] hover:bg-[#B0CDE6]/30 hover:shadow-[3px_3px_0px_rgba(148,109,109,0.35)] active:translate-y-0.5 transition-all dark:bg-[#322727] dark:text-[#FDF4D2] dark:border-[#FDF4D2]/30"
               >
-                <Linkedin className="h-4 w-4" />
+                <Linkedin className="h-4 w-4 text-[#0077B5]" />
                 <span>LinkedIn</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Minimal Footer Navigation Bar */}
-        <div className="mt-20 border-t border-border/60 pt-10">
-          <nav className="grid grid-cols-2 gap-4 sm:flex sm:items-center sm:justify-between font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-            <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
-              <a className="transition hover:text-foreground" href="#projects">Work</a>
-              <a className="transition hover:text-foreground" href="#services">Stack</a>
-              <a className="transition hover:text-foreground" href="#about">Principles</a>
-              <a className="transition hover:text-foreground" href="#certifications">Credentials</a>
-              <a className="transition hover:text-foreground" href="#contact">Contact</a>
+        {/* Footer Navigation & Copyright */}
+        <div className="mt-20 border-t-2 border-[#946D6D]/20 pt-8 dark:border-[#FDF4D2]/20">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 font-display text-xs font-bold uppercase tracking-wider text-[#946D6D]/80 dark:text-[#FDF4D2]/80">
+            <div className="flex flex-wrap gap-6">
+              <a className="hover:text-[#946D6D] hover:underline underline-offset-4 dark:hover:text-[#FDF4D2]" href="#projects">Work</a>
+              <a className="hover:text-[#946D6D] hover:underline underline-offset-4 dark:hover:text-[#FDF4D2]" href="#stack">Stack</a>
+              <a className="hover:text-[#946D6D] hover:underline underline-offset-4 dark:hover:text-[#FDF4D2]" href="#principles">Principles</a>
+              <a className="hover:text-[#946D6D] hover:underline underline-offset-4 dark:hover:text-[#FDF4D2]" href="#credentials">Credentials</a>
+              <a className="hover:text-[#946D6D] hover:underline underline-offset-4 dark:hover:text-[#FDF4D2]" href="#contact">Contact</a>
             </div>
 
-            <p className="col-span-2 sm:col-span-1 text-muted-foreground/60 mt-4 sm:mt-0">
-              Copyright © {new Date().getFullYear()} Anjelo Vidal. Built with React and Tailwind.
+            <p className="font-mono text-[11px] font-normal normal-case text-[#946D6D]/60 dark:text-[#FDF4D2]/60">
+              © {new Date().getFullYear()} Jullian Anjelo C. Vidal. Built with React, Vite & Tailwind.
             </p>
-          </nav>
+          </div>
         </div>
       </div>
     </footer>

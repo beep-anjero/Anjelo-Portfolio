@@ -1,31 +1,39 @@
-import { Blocks, Code2, Layers, Zap, BookOpen } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Blocks, Code2, Layers, Zap, Compass, CheckCircle2 } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
 
 const principles = [
   {
     title: 'Start With The Workflow',
+    number: '01',
     icon: Blocks,
+    tint: 'bg-[#B0CDE6]/25 border-[#B0CDE6]/70 dark:bg-[#B0CDE6]/10',
     copy: 'I map what the user needs to finish, then shape the data model and interface around that path.',
   },
   {
     title: 'Make The Backend Honest',
+    number: '02',
     icon: Code2,
+    tint: 'bg-[#A290B7]/25 border-[#A290B7]/70 dark:bg-[#A290B7]/10',
     copy: 'Clear schemas, predictable endpoints, and readable service logic matter more to me than clever code.',
   },
   {
     title: 'Keep Feedback Fast',
+    number: '03',
     icon: Zap,
+    tint: 'bg-[#A290B7]/25 border-[#A290B7]/70 dark:bg-[#A290B7]/10',
     copy: 'I care about responsive interactions, useful errors, and small details that make software feel trustworthy.',
   },
   {
     title: 'Connect The Layers',
+    number: '04',
     icon: Layers,
+    tint: 'bg-[#B0CDE6]/25 border-[#B0CDE6]/70 dark:bg-[#B0CDE6]/10',
     copy: 'Frontend, backend, and database choices should support each other instead of becoming separate islands.',
   },
 ];
 
 export function About() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -33,85 +41,108 @@ export function About() {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: 30 },
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { type: 'spring', stiffness: 80, damping: 15 },
+      y: 0,
+      transition: { type: 'spring', stiffness: 85, damping: 15 },
     },
   };
 
   return (
-    <section id="about" className="relative overflow-hidden border-b border-border bg-background py-20 px-4 text-foreground transition-colors duration-500 sm:px-6 lg:px-8 lg:py-28">
-      {/* Background grid */}
-      <div className="absolute inset-0 portfolio-grid opacity-30 pointer-events-none" />
+    <section
+      id="principles"
+      className="relative overflow-hidden border-b-2 border-[#946D6D]/20 bg-[#FDF4D2] py-20 px-4 text-[#946D6D] transition-colors duration-500 sm:px-6 lg:px-8 lg:py-28 dark:bg-[#251D1D] dark:text-[#FDF4D2] dark:border-[#FDF4D2]/20"
+    >
+      <div className="absolute inset-0 portfolio-grid opacity-40 pointer-events-none" />
 
       <div className="mx-auto max-w-7xl relative z-10">
-
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          {/* About Column */}
+          {/* Left Column: Bio & Philosophy Overview */}
           <div className="lg:sticky lg:top-28">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--accent)]">Philosophy</p>
-            <h2 className="mt-4 text-3xl font-black uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-              A developer focused on backend systems and clean code.
+            <div className="flex items-center gap-2">
+              <Compass className="h-4 w-4 text-[#A290B7] dark:text-[#B0CDE6]" />
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#A290B7] dark:text-[#B0CDE6]">
+                Principles & Philosophy
+              </span>
+            </div>
+
+            <h2 className="mt-3 font-display text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl text-[#946D6D] dark:text-[#FDF4D2]">
+              Building software with intent and care.
             </h2>
-            <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              I am Jullian Anjelo C. Vidal, a Computer Science Intern who enjoys building the quiet parts of software that make the visible parts work well.
+
+            <p className="mt-6 text-base font-normal leading-relaxed text-[#946D6D]/85 sm:text-lg dark:text-[#FDF4D2]/85">
+              I am Jullian Anjelo C. Vidal, a Computer Science Intern who enjoys building the quiet parts of software that make the visible parts work smoothly.
             </p>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              My projects sit across mobile apps, machine learning tools, and database systems. The common thread is simple: make complicated work easier for the person using the product.
+
+            <p className="mt-4 text-base font-normal leading-relaxed text-[#946D6D]/85 sm:text-lg dark:text-[#FDF4D2]/85">
+              My builds span mobile apps, machine learning interfaces, and database normalization tools. The unifying goal is straightforward: turn intricate complexity into predictable, dependable software.
             </p>
+
+            {/* Quick Callout Box */}
+            <div className="mt-8 bento-card p-5 bg-white dark:bg-[#322727]">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[#A290B7] dark:text-[#B0CDE6] shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-display text-sm font-extrabold uppercase text-[#946D6D] dark:text-[#FDF4D2]">
+                    Direct & Maintainable Code
+                  </h4>
+                  <p className="mt-1 text-xs text-[#946D6D]/80 dark:text-[#FDF4D2]/80 leading-relaxed">
+                    I believe great software is easy to explain, straightforward to refactor, and built to empower the end user.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Principles Column (Article Feed Style) */}
+          {/* Right Column: 4 Sleek Interactive Principle Cards */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="grid gap-4 sm:grid-cols-1"
+            viewport={{ once: true, amount: 0.05 }}
+            className="grid gap-5 sm:grid-cols-2"
           >
-            {principles.map((item, index) => {
+            {principles.map((item) => {
               const Icon = item.icon;
 
               return (
-                <motion.article 
+                <motion.article
                   key={item.title}
                   variants={itemVariants}
-                  className="rounded-2xl border border-border bg-card p-6 shadow-sm hover:border-[var(--accent)]/55 transition-all duration-300 group flex items-start gap-5 cursor-default"
+                  className={`bento-card flex flex-col justify-between p-6 sm:p-7 group cursor-default ${item.tint}`}
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary text-foreground group-hover:bg-[var(--accent)] group-hover:text-[#080809] transition-all duration-300 shadow-sm">
-                    <Icon className="h-5.5 w-5.5" />
-                  </div>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60">Principle 0{index + 1}</span>
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#946D6D]/30 bg-white text-[#946D6D] shadow-[2px_2px_0px_rgba(148,109,109,0.2)] group-hover:scale-105 transition-transform dark:bg-[#322727] dark:text-[#FDF4D2]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="font-mono text-xs font-black text-[#946D6D]/40 group-hover:text-[#946D6D] transition-colors dark:text-[#FDF4D2]/40">
+                        {item.number}
+                      </span>
                     </div>
-                    <h3 className="mt-2 text-xl font-black uppercase tracking-tight text-foreground group-hover:text-[var(--accent)] transition-colors duration-300">
+
+                    {/* Title */}
+                    <h3 className="mt-6 font-display text-xl font-extrabold uppercase tracking-tight text-[#946D6D] dark:text-[#FDF4D2]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+
+                    {/* Copy */}
+                    <p className="mt-3 text-sm font-normal leading-relaxed text-[#946D6D]/85 dark:text-[#FDF4D2]/85">
                       {item.copy}
                     </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-[#946D6D]/20 dark:border-[#FDF4D2]/20">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#A290B7] dark:text-[#B0CDE6]">
+                      Core Principle
+                    </span>
                   </div>
                 </motion.article>
               );
             })}
-
-            {/* Working Style Bento Card */}
-            <motion.div 
-              variants={itemVariants}
-              className="rounded-2xl border border-border bg-card p-6 sm:p-8 text-foreground hover:border-[var(--accent)]/55 transition-all duration-300 group cursor-default"
-            >
-              <div className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-widest text-[var(--accent)] font-bold">
-                <BookOpen className="h-3.5 w-3.5" />
-                <span>Working Style</span>
-              </div>
-              <p className="mt-5 text-2xl font-black uppercase leading-tight tracking-tight sm:text-3xl group-hover:text-[var(--accent)] transition-colors duration-300">
-                I like software that is direct, maintainable, and easy to explain to the next person who has to improve it.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>
