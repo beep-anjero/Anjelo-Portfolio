@@ -43,7 +43,7 @@ const projects: Project[] = [
     title: 'RentRig',
     category: 'Mobile Business Toolkit',
     icon: Smartphone,
-    image: '/images/rentrig-preview.svg',
+    image: '/images/rentrig-preview.png',
     tint: 'bg-[#B0CDE6]/15 border-[#B0CDE6]/60 dark:bg-[#322727]/90 dark:border-[#B0CDE6]/30',
     problemSolved: 'Mobile-first business management with local SQLite state and offline data persistence, engineered for owners who need critical operations to run uninterrupted even during spotty connectivity.',
     outcome: 'Offline-ready workflows',
