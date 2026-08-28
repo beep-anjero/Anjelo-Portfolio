@@ -40,16 +40,16 @@ const projects: Project[] = [
     liveUrl: 'https://score-cast.vercel.app/',
   },
   {
-    title: 'MicroBiz',
+    title: 'RentRig',
     category: 'Mobile Business Toolkit',
     icon: Smartphone,
-    image: '/images/microbiz-preview.svg',
+    image: '/images/rentrig-preview.svg',
     tint: 'bg-[#B0CDE6]/15 border-[#B0CDE6]/60 dark:bg-[#322727]/90 dark:border-[#B0CDE6]/30',
     problemSolved: 'Mobile-first business management with local SQLite state and offline data persistence, engineered for owners who need critical operations to run uninterrupted even during spotty connectivity.',
     outcome: 'Offline-ready workflows',
     tools: ['DART', 'FLUTTER', 'SQLITE', 'PROVIDER'],
-    codeUrl: 'https://github.com/beep-anjero/MicroBiz',
-    liveUrl: 'https://github.com/beep-anjero/MicroBiz#readme',
+    codeUrl: 'https://github.com/beep-anjero/RentRig',
+    liveUrl: 'https://github.com/beep-anjero/RentRig',
   },
 ];
 
@@ -113,9 +113,8 @@ export function Projects() {
               <motion.article
                 key={project.title}
                 variants={cardVariants}
-                className={`bento-card flex flex-col justify-between p-4 sm:p-5 group ${
-                  isFullSpan ? 'md:col-span-2 lg:col-span-1' : ''
-                } ${project.tint}`}
+                className={`bento-card flex flex-col justify-between p-4 sm:p-5 group ${isFullSpan ? 'md:col-span-2 lg:col-span-1' : ''
+                  } ${project.tint}`}
               >
                 <div>
                   {/* Screenshot Preview Container with Aspect-Ratio & Hover Zoom */}
