@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Sparkles, Smartphone, BarChart3, Database } from 'lucide-react';
+import { ArrowUpRight, Github, Sparkles, Smartphone, BarChart3, Database, GraduationCap } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 
 type Project = {
@@ -50,6 +50,18 @@ const projects: Project[] = [
     tools: ['DART', 'FLUTTER', 'SQLITE', 'PROVIDER'],
     codeUrl: 'https://github.com/beep-anjero/RentRig',
     liveUrl: 'https://github.com/beep-anjero/RentRig',
+  },
+  {
+    title: 'PockEd',
+    category: 'Micro-Learning Sprints',
+    icon: GraduationCap,
+    image: '/images/pocked-preview.png',
+    tint: 'bg-[#4A7C59]/15 border-[#4A7C59]/60 dark:bg-[#322727]/90 dark:border-[#4A7C59]/30',
+    problemSolved: 'A student-focused web app that turns downtime between classes into focused flashcard study sessions, pairing a schedule manager with an SM-2 spaced repetition sprint engine, AI note ingestion, and a full stats dashboard.',
+    outcome: 'Spaced repetition sprints',
+    tools: ['NEXT.JS', 'TYPESCRIPT', 'TAILWIND', 'ZUSTAND', 'FRAMER MOTION'],
+    codeUrl: 'https://github.com/beep-anjero/PockEd',
+    liveUrl: 'https://pock-ed.vercel.app',
   },
 ];
 
@@ -107,14 +119,12 @@ export function Projects() {
         >
           {projects.map((project, index) => {
             const Icon = project.icon;
-            const isFullSpan = index === 2; // Make 3rd project elegantly fill balanced 2-col layout
 
             return (
               <motion.article
                 key={project.title}
                 variants={cardVariants}
-                className={`bento-card flex flex-col justify-between p-4 sm:p-5 group ${isFullSpan ? 'md:col-span-2 lg:col-span-1' : ''
-                  } ${project.tint}`}
+                className={`bento-card flex flex-col justify-between p-4 sm:p-5 group ${project.tint}`}
               >
                 <div>
                   {/* Screenshot Preview Container with Aspect-Ratio & Hover Zoom */}
