@@ -1,110 +1,25 @@
-import { Hero } from './components/Hero';
-import { Projects } from './components/Projects';
-import { PowerTrio } from './components/PowerTrio';
-import { About } from './components/About';
-import { Certifications } from './components/Certifications';
-import { Contact } from './components/Contact';
-import { MobileNav } from './components/MobileNav';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { ArrowUpRight, Check, Copy, Github, Linkedin, Menu, ShieldCheck, X } from 'lucide-react';
 
-function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [visible, setVisible] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const [isTouch, setIsTouch] = useState(true);
+const projects = [
+  ['Narra','Data exploration','https://raw.githubusercontent.com/beep-anjero/Narra/main/docs/screenshots/dashboard-desktop.png','Turns a CSV into a clear dashboard with automatic visualizations, traceable insights, and fast data filtering.',['Next.js','TypeScript','FastAPI'],'https://narra-web-bay.vercel.app/demo'],
+  ['JejeNorm','Database engineering','/images/jejenorm-preview.png','Analyzes relational models, identifies dependencies, and guides schemas from 1NF through BCNF.',['Python','Django','PostgreSQL'],'https://jeje-norm.vercel.app'],
+  ['ScoreCast','Machine learning','/images/scorecast-preview.png','Turns trained scikit-learn models into a focused, real-time academic prediction experience.',['Python','Flask','scikit-learn'],'https://score-cast.vercel.app/'],
+  ['RentRig','Mobile operations','/images/rentrig-preview.png','An offline-first business toolkit that keeps critical rental workflows moving without a connection.',['Flutter','Dart','SQLite'],'https://github.com/beep-anjero/RentRig'],
+  ['PockEd','Learning product','/images/pocked-preview.png','Transforms spare minutes into focused study sprints with spaced repetition and progress insights.',['Next.js','TypeScript','Zustand'],'https://pock-ed.vercel.app'],
+] as const;
+const capabilities = [
+  ['01','Backend systems','REST APIs, authentication, data modeling, and dependable server-side logic with Laravel, Django, Flask, and Java.'],
+  ['02','Product interfaces','Responsive, accessible interfaces built with Vue, React, Quasar, TypeScript, and a sharp eye for interaction detail.'],
+  ['03','Data & mobile','Relational databases, ML pipelines, and offline-first experiences with PostgreSQL, MySQL, SQLite, and Flutter.'],
+];
 
-  useEffect(() => {
-    const checkTouch = () => {
-      setIsTouch(window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window));
-    };
-    checkTouch();
-    window.addEventListener('resize', checkTouch);
+function Nav(){const[open,setOpen]=useState(false);return <header className="nav-wrap"><a className="brand" href="#top"><span className="brand-mark"/>JACV<span className="brand-year">/26</span></a><nav className={open?'nav-links open':'nav-links'}><a href="#work">Work</a><a href="#stack">Stack</a><a href="#about">About</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a></nav><a className="nav-cta" href="#contact">Let’s talk</a><button className="menu-button" onClick={()=>setOpen(!open)} aria-label="Toggle navigation">{open?<X/>:<Menu/>}</button></header>}
+function Terminal(){return <div className="terminal"><div className="terminal-bar"><div className="traffic"><i/><i/><i/></div><span>anjelo@portfolio — ~/workspace</span></div><div className="terminal-body"><p><b>$</b> whoami</p><p className="output">Jullian Anjelo C. Vidal</p><p><b>$</b> cat focus.txt</p><p className="output">Full-stack systems · thoughtful interfaces<br/>reliable data · useful software</p><p><b>$</b> status</p><p className="output"><span className="status-dot"/>available for internship opportunities</p><p><b>$</b> <span className="cursor">_</span></p></div></div>}
+function Contact(){const[copied,setCopied]=useState(false),email='anjelovidal28@gmail.com';const copy=async()=>{await navigator.clipboard.writeText(email);setCopied(true);setTimeout(()=>setCopied(false),1800)};return <footer id="contact" className="contact section"><div className="section-inner contact-grid"><div><p className="eyebrow">Start a conversation</p><h2>Have a useful problem?<br/><span>Let’s build it.</span></h2></div><div className="contact-panel"><p>I’m open to computer science internships, collaborative builds, and thoughtful conversations about backend architecture and product interfaces.</p><button className="email-button" onClick={copy}><span><small>{copied?'Copied to clipboard':'Email me directly'}</small>{email}</span>{copied?<Check/>:<Copy/>}</button><div className="socials"><a href="https://github.com/beep-anjero" target="_blank" rel="noreferrer"><Github/>GitHub</a><a href="https://www.linkedin.com/in/anjelo-vidal/" target="_blank" rel="noreferrer"><Linkedin/>LinkedIn</a></div></div></div><div className="footer-line"><span>© {new Date().getFullYear()} Jullian Anjelo C. Vidal</span><span>React · Vite · TypeScript</span></div></footer>}
 
-    const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setVisible(true);
-    };
-
-    const handleMouseLeave = () => {
-      setVisible(false);
-    };
-
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const isHoverable = target.closest("a, button, [role='button'], input, select, textarea");
-      setHovered(!!isHoverable);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    window.addEventListener('mouseover', handleMouseOver);
-
-    return () => {
-      window.removeEventListener('resize', checkTouch);
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      window.removeEventListener('mouseover', handleMouseOver);
-    };
-  }, []);
-
-  if (isTouch || !visible) return null;
-
-  return (
-    <>
-      <div
-        className="pointer-events-none fixed top-0 left-0 z-50 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-transform duration-150 ease-out"
-        style={{
-          transform: `translate3d(${position.x}px, ${position.y}px, 0) scale(${hovered ? 1.35 : 1})`,
-          backgroundColor: hovered ? 'rgba(176, 205, 230, 0.35)' : 'transparent',
-          borderColor: hovered ? '#946D6D' : 'rgba(148, 109, 109, 0.45)',
-        }}
-      />
-      <div
-        className="pointer-events-none fixed top-0 left-0 z-50 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#946D6D] transition-transform duration-75 dark:bg-[#B0CDE6]"
-        style={{
-          transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-        }}
-      />
-    </>
-  );
-}
-
-export default function App() {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window === 'undefined') {
-      return false;
-    }
-    const savedTheme = window.localStorage.getItem('theme');
-    return savedTheme ? savedTheme === 'dark' : false; // Default to the requested light mode palette
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark);
-    window.localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }, [isDark]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--y', `${e.clientY}px`);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  return (
-    <div className="relative min-h-screen bg-[#FDF4D2] text-[#946D6D] transition-colors duration-500 overflow-x-hidden selection:bg-[#B0CDE6] selection:text-[#251D1D] dark:bg-[#251D1D] dark:text-[#FDF4D2]">
-      <div className="pointer-events-none fixed inset-0 z-0 spotlight-glow" />
-      <div className="relative z-10 pb-16 md:pb-0">
-        <Hero isDark={isDark} onToggleTheme={() => setIsDark((value) => !value)} />
-        <Projects />
-        <PowerTrio />
-        <About />
-        <Certifications />
-        <Contact />
-      </div>
-      <MobileNav />
-      <CustomCursor />
-    </div>
-  );
-}
+export default function App(){return <div id="top" className="site-shell"><Nav/><main><section className="hero section"><div className="hero-glow"/><div className="section-inner hero-inner"><div className="hero-copy"><p className="eyebrow"><span className="status-dot"/>Computer science intern · Philippines</p><h1><span>Building useful</span><br/>software, end to end.</h1><p className="hero-lead">I’m Anjelo, a full-stack developer building reliable web applications, clean APIs, and responsive product experiences.</p><div className="hero-actions"><a className="button accent" href="#work">Explore my work <ArrowUpRight/></a><a className="button ghost" href="https://github.com/beep-anjero" target="_blank" rel="noreferrer"><Github/>GitHub</a></div></div><div className="hero-visual"><div className="core"><div className="cube">{['front','back','right','left','top','bottom'].map(f=><span key={f} className={`face ${f}`}/>)}</div></div><Terminal/></div></div><div className="ticker"><div>Laravel ◆ Vue.js ◆ Python ◆ Flutter ◆ PostgreSQL ◆ TypeScript ◆ REST APIs ◆ Product Engineering</div></div></section>
+<section id="work" className="section work"><div className="section-inner"><div className="section-head"><div><p className="eyebrow">Selected work</p><h2>Projects made to be used.</h2></div><p>Practical applications spanning data tools, machine learning, mobile operations, and education.</p></div><div className="project-grid">{projects.map((p,i)=><article className="project-card" key={p[0]}><a className="project-image" href={p[5]} target="_blank" rel="noreferrer"><img src={p[2]} alt={`${p[0]} interface preview`}/><span className="project-index">0{i+1}</span><span className="open-icon"><ArrowUpRight/></span></a><div className="project-copy"><p className="eyebrow">{p[1]}</p><h3>{p[0]}</h3><p>{p[3]}</p><div className="tags">{p[4].map(t=><span key={t}>{t}</span>)}</div></div></article>)}</div></div></section>
+<section id="stack" className="section stack"><div className="section-inner"><div className="section-head"><div><p className="eyebrow">What I build</p><h2>Across the whole stack.</h2></div><p>Technical depth paired with product judgment—from schema to interface.</p></div><div className="capability-grid">{capabilities.map(c=><article className="capability" key={c[0]}><div className="iso-icon"><span/><span/><span/></div><p className="cap-number">{c[0]}</p><h3>{c[1]}</h3><p>{c[2]}</p></article>)}</div></div></section>
+<section id="about" className="section about"><div className="section-inner about-grid"><div className="portrait"><img src="/images/anjelo-profile.png" alt="Jullian Anjelo C. Vidal"/><div className="portrait-label"><span className="status-dot"/>based in the Philippines</div></div><div className="about-copy"><p className="eyebrow">About me</p><h2>Curious by default.<br/>Precise by practice.</h2><p className="about-lead">I like turning complex requirements into software that feels straightforward.</p><p>My work sits at the intersection of backend architecture, relational data, and clean interface design. I care about dependable foundations, considered details, and learning fast enough to make each build better than the last.</p><div className="about-stats"><div><strong>05</strong><span>Featured builds</span></div><div><strong>10+</strong><span>Technologies</span></div><div><strong>2026</strong><span>Open to work</span></div></div></div></div></section>
+<section id="credentials" className="section credentials"><div className="section-inner"><div className="section-head"><div><p className="eyebrow">Credentials</p><h2>Verified foundations.</h2></div><p>Industry-recognized proof of database design, querying, and administration fundamentals.</p></div><article className="credential-card"><div className="credential-seal"><ShieldCheck/><span>Verified<br/>Credential</span></div><div className="credential-copy"><p className="eyebrow">Certiport · A Pearson VUE Business</p><h3>Information Technology Specialist: Databases</h3><p>Validates competency in relational database architecture, SQL query formulation, and structured transaction management.</p><ul><li><Check/>Database design & schema normalization</li><li><Check/>SQL data manipulation language</li><li><Check/>SQL data definition language</li><li><Check/>Security, administration & transaction control</li></ul><a className="button ghost" href="https://www.credly.com/badges/8bcb7d31-34c1-4028-bcb8-8c1c28d9aa2d" target="_blank" rel="noreferrer">Verify on Credly <ArrowUpRight/></a></div></article></div></section></main><Contact/></div>}
